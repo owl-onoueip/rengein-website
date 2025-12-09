@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Renge-in Temple - Official Website</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Welcome to Renge-in Temple, a place of peace and tradition.">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		/* テキストロゴのスタイル */
+		.text-logo {
+			font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "游明朝", YuMincho, "MS P明朝", "MS PMincho", serif;
+			font-size: 2.5em;
+			color: #8b4513;
+			text-align: center;
+			margin: 20px 0 40px 0;
+			letter-spacing: 0.1em;
+			position: relative;
+		}
+
+		.text-logo a {
+			color: #8b4513;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		.text-logo .small {
+			font-size: 0.5em;
+			display: block;
+			margin-top: 15px;
+			color: #666;
+			line-height: 1.5;
+			letter-spacing: 0.05em;
+		}
+
+		/* テキストの重なりを解消するスタイル */
+		h2 .small {
+			display: block;
+			margin-top: 10px;
+			font-size: 0.6em;
+			line-height: 1.5;
+		}
+
+		/* メニューボタンのスタイル */
+		#menubar_hdr {
+			display: block !important;
+			position: fixed !important;
+			z-index: 9999 !important;
+			top: 10px !important;
+			right: 10px !important;
+			width: 80px !important;
+			height: 80px !important;
+			background: #fff !important;
+			border: 2px solid #8b4513 !important;
+			border-radius: 4px !important;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+			cursor: pointer !important;
+			transition: all 0.3s ease !important;
+		}
+
+		#menubar_hdr:hover {
+			background-color: rgba(139, 69, 19, 0.1) !important;
+			transform: translateY(-3px) !important;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+		}
+
+		.menu-icon {
+			width: 50px !important;
+			height: 50px !important;
+			position: absolute !important;
+			top: 50% !important;
+			left: 50% !important;
+			transform: translate(-50%, -50%) !important;
+		}
+
+		.menu-icon span {
+			display: block !important;
+			position: absolute !important;
+			width: 100% !important;
+			height: 4px !important;
+			background-color: #8b4513 !important;
+			border-radius: 4px !important;
+			transition: all 0.3s ease !important;
+		}
+
+		.menu-icon span:nth-child(1) {
+			top: 15px !important;
+		}
+
+		.menu-icon span:nth-child(2) {
+			width: 70% !important;
+			bottom: 15px !important;
+		}
+
+		#menubar_hdr:hover .menu-icon span:nth-child(2) {
+			width: 100% !important;
+		}
+
+		/* ヘッダーメッセージのスタイル調整 */
+		header .message {
+			margin-top: 30px;
+			position: relative;
+			z-index: 1;
+		}
+	</style>
+</head>
+
+<body class="home en">
+
+	<div id="container">
+
+		<header>
+
+			<h1 class="text-logo">
+				<a href="index_en.html">Renge-in Temple</a>
+				<span class="small">Shingon Buddhism</span>
+			</h1>
+
+			<div class="message">
+				<p>Welcome to Renge-in Temple.</p>
+				<p>Our temple has been<br>
+					a place of spiritual comfort for the local community<br>
+					since ancient times.</p>
+				<p>We offer daily prayers and seasonal events<br>
+					to bring peace to your heart.</p>
+			</div>
+
+			<!-- 右側の写真エリア -->
+			<div class="temple-photos" style="position: absolute; right: 20px; top: 100px; width: 300px; z-index: 100;">
+				<img src="images/sample1.jpg" alt="Temple Photo"
+					style="width: 100%; margin-bottom: 10px; border: 3px solid #f8f5f0; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+				<img src="images/sample2.jpg" alt="Temple Photo"
+					style="width: 100%; margin-bottom: 10px; border: 3px solid #f8f5f0; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+			</div>
+
+			<!--メイン画像読み込み-->
+			<aside id="mainimg">
+				<img src="images/slide1.jpg" alt="" class="slide0">
+				<img src="images/slide2.jpg" alt="" class="slide1">
+				<img src="images/slide3.jpg" alt="" class="slide2">
+			</aside>
+
+			<ul class="lang">
+				<li><a href="index_en.html">English</a></li>
+			</ul>
+
+		</header>
+
+		<div id="contents">
+
+			<main>
+
+				<section>
+
+					<h2>About Our Temple<span class="small">蓮花院について</span></h2>
+					<p class="c">Renge-in Temple was established in the early Kamakura period (around 1190) and has a
+						history of over 830 years.</p>
+
+				</section>
+
+				<section class="bg1">
+
+					<h2>Annual Events<span class="small">年間行事</span></h2>
+
+					<div class="list-grid1">
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample1.jpg" alt="Obon Festival"></a></figure>
+							<div class="text">
+								<h4>Obon Festival</h4>
+								<p>From August 13th to 16th, we hold memorial services for ancestors. Please visit with
+									your family for spirit altar decorations and grave visits.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample2.jpg" alt="Segaki Service"></a></figure>
+							<div class="text">
+								<h4>Segaki Service</h4>
+								<p>On August 15th, we hold a memorial service for the souls of the deceased who have no
+									living relatives to remember them and pray for world peace.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample3.jpg" alt="Monthly Memorial Service"></a>
+							</figure>
+							<div class="text">
+								<h4>Monthly Memorial Service</h4>
+								<p>On the 1st and 15th of each month, we hold memorial services for ancestors and pray
+									for the health of your family.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+					</div>
+					<!--/.list-grid1-->
+
+				</section>
+
+				<section>
+
+					<h2>Temple Information<span class="small">寺院案内</span></h2>
+
+					<div class="list-grid1">
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample1.jpg" alt="Temple Services"></a></figure>
+							<div class="text">
+								<h4>Temple Services</h4>
+								<p>We offer various services including memorial services for ancestors and prayers for
+									family health. Please feel free to contact us.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample2.jpg" alt="Temple Grounds"></a></figure>
+							<div class="text">
+								<h4>Temple Grounds</h4>
+								<p>Our temple grounds include the main hall, pagoda, bell tower, and garden. Enjoy the
+									peaceful atmosphere surrounded by nature throughout the seasons.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+						<div class="list blur">
+							<figure><a href="#"><img src="images/sample3.jpg" alt="Access Information"></a></figure>
+							<div class="text">
+								<h4>Access Information</h4>
+								<p>Located in Kuki City, Saitama Prefecture. 20 minutes walk from Kuki Station on the
+									Tobu Isesaki Line, or 10 minutes by car from Kuki IC on the Tohoku Expressway.</p>
+							</div>
+							<p class="btn"><a href="#">See more</a></p>
+						</div>
+
+					</div>
+					<!--/.list-grid1-->
+
+				</section>
+
+			</main>
+
+		</div>
+		<!--/#contents-->
+
+	</div>
+	<!--/#container-->
+
+	<section>
+
+		<h2 class="dn">Gallery</h2>
+
+		<div class="thumbnail-slide">
+			<a href="#"><img src="images/sample1.jpg" alt="Temple Main Hall"></a>
+			<a href="#"><img src="images/sample2.jpg" alt="Temple Garden"></a>
+			<a href="#"><img src="images/sample3.jpg" alt="Temple Bell"></a>
+			<a href="#"><img src="images/sample1.jpg" alt="Temple Pagoda"></a>
+			<a href="#"><img src="images/sample2.jpg" alt="Cherry Blossoms"></a>
+			<a href="#"><img src="images/sample3.jpg" alt="Autumn Leaves"></a>
+		</div>
+
+	</section>
+
+	<div id="footer-contents">
+
+		<div class="left">
+
+			<h3>蓮花院</h3>
+			<p>〒346-0022 埼玉県久喜市下早見７２５<br>
+				電話：0480-21-2636<br>
+				受付時間：午前9時から午後5時まで</p>
+
+			<ul class="icons">
+				<li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-line"></i></a></li>
+				<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			</ul>
+
+			<p class="btn"><a href="contact.html">問い合わせ</a></p>
+			<p class="btn"><a href="contact.html">資料請求</a></p>
+
+		</div>
+		<!--/.left-->
+
+		<div class="right">
+
+			<h3>アクセス</h3>
+			<p><a href="https://template-party.com/file/pickup_googlemap.html">GoogleMapの地図を変更する方法はマニュアルをご覧下さい。</a></p>
+			<div class="iframe-box">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.0448418561778!2d139.74267721573196!3d35.675897837870934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89b2e1c8b1%3A0x59a123e3d5ac5ab6!2z44CSMTAwLTAwMTQg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65rC455Sw55S677yR5LiB55uu77yX4oiS77yR!5e0!3m2!1sja!2sjp!4v1545036128899"
+					frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+
+		</div>
+		<!--/.right-->
+
+	</div>
+	<!--/#footer-contents-->
+
+	<div id="footermenu">
+		<ul>
+			<li class="title">About Temple</li>
+			<li><a href="about.html#history">Temple History</a></li>
+			<li><a href="about.html#message">Priest's Greeting</a></li>
+			<li><a href="about.html#temple-grounds">Temple Grounds</a></li>
+			<li><a href="about.html#access">Access</a></li>
+		</ul>
+		<ul>
+			<li class="title">Annual Events</li>
+			<li><a href="events.html#spring">Spring Events</a></li>
+			<li><a href="events.html#summer">Summer Events</a></li>
+			<li><a href="events.html#autumn">Autumn Events</a></li>
+			<li><a href="events.html#winter">Winter Events</a></li>
+		</ul>
+		<ul>
+			<li class="title">Contact</li>
+			<li><a href="contact.html#form">Contact Form</a></li>
+			<li><a href="contact.html#access">Access Information</a></li>
+		</ul>
+	</div>
+	<!--/#footermenu-->
+
+	<footer>
+		<small>Copyright&copy; <a href="index.html">蓮花院</a> All Rights Reserved.</small>
+		<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+	</footer>
+
+	<!--ページの上部へ戻るボタン-->
+	<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+	<!--ハンバーガーメニュー-->
+	<a href="menu.html">
+		<div id="menubar_hdr">
+			<div class="menu-icon">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</a>
+
+	<!--開閉ブロック-->
+	<div id="menubar" class="display-none">
+		<nav>
+			<ul>
+				<li><a href="index_en.html">Home</a></li>
+				<li><a href="about.html">About Temple</a></li>
+				<li><a href="events.html">Annual Events</a>
+					<ul>
+						<li><a href="events.html#spring">Spring Events</a></li>
+						<li><a href="events.html#summer">Summer Events</a></li>
+						<li><a href="events.html#autumn">Autumn Events</a></li>
+					</ul>
+				</li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!--/#menubar-->
+
+	<!--jQueryの読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!--スライドショー（slick）-->
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="js/slick.js"></script>
+
+	<!--パララックス（inview）-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+	<script src="js/jquery.inview_set.js"></script>
+
+	<!--このテンプレート専用のスクリプト-->
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

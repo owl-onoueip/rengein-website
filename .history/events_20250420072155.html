@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>年間行事 - 真言宗智山派 蓮花院</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="蓮花院の年間行事のご案内です。季節ごとの法要や行事について紹介しています。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            background-color: #f8f5f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #8b4513;
+            margin: 80px 0 15px;
+            position: relative;
+            padding-bottom: 8px;
+            padding-top: 10px;
+            font-size: 1.8em;
+            line-height: 1.3;
+        }
+
+        .small {
+            display: block;
+            font-size: 0.5em;
+            margin-top: 3px;
+            color: #666;
+        }
+
+        /* ページ内ナビゲーション */
+        .page-nav {
+            margin: 20px 0 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .page-nav li {
+            margin: 5px 10px;
+        }
+
+        .page-nav a {
+            display: block;
+            padding: 8px 15px;
+            color: #8b4513;
+            text-decoration: none;
+            border: 1px solid #f0e6d2;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .page-nav a:hover {
+            background-color: #f9f5f0;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-section {
+            margin-bottom: 60px;
+            padding: 30px 0;
+        }
+
+        .event-section h3 {
+            text-align: center;
+            color: #8b4513;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .event-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #8b4513;
+        }
+
+        .events-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .events-intro p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .event-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .event-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .event-item:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-date {
+            color: #8b4513;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .event-description {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: #8b4513;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-link:hover {
+            background-color: #a05c2b;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .page-nav li {
+                margin-bottom: 10px;
+            }
+
+            .event-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1 id="logo"><a href="index.html"><img src="images/logo_tate.png" alt="蓮花院"></a></h1>
+        </header>
+
+        <div id="contents">
+            <main>
+                <div class="content-container">
+                    <h2>年間行事<span class="small">Annual Events</span></h2>
+
+                    <!-- ページ内ナビゲーション -->
+                    <div class="page-nav">
+                        <ul>
+                            <li><a href="#spring">春の行事</a></li>
+                            <li><a href="#summer">夏の行事</a></li>
+                            <li><a href="#autumn">秋の行事</a></li>
+                            <li><a href="#winter">冬の行事</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="events-intro">
+                        <p>蓮花院では、季節ごとに様々な法要や行事を行っています。</p>
+                        <p>ご先祖様の供養や、ご家族の健康祈願など、様々な法要を承っております。</p>
+                    </div>
+
+                    <section id="spring" class="event-section">
+                        <h3>春の行事</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>春季彼岸会</h4>
+                                    <div class="event-date">3月18日〜24日</div>
+                                    <p>
+                                        春分の日を中心とした一週間、ご先祖様をご供養する大切な法要です。彼岸とは、迷いの世界である此岸から、悟りの世界である彼岸へ渡ることを意味します。期間中は本堂にて読経を行い、ご先祖様の冥福をお祈りいたします。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>花まつり</h4>
+                                    <div class="event-date">4月8日</div>
+                                    <p>
+                                        お釈迦様の誕生日を祝う行事です。甘茶の接待があり、お釈迦様の誕生仏に甘茶をかけて祝います。子どもたちも参加できる楽しい行事となっております。この日に参拝すると、一年の無病息災が約束されると言われています。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="summer" class="event-section">
+                        <h3>夏の行事</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>お盆法要</h4>
+                                    <div class="event-date">8月13日〜16日</div>
+                                    <p>
+                                        ご先祖様の霊がこの世に戻ってくるとされるお盆の期間、ご先祖様の供養を行います。期間中は本堂にて読経を行い、ご供養いたします。ご家族でのご参拝をお待ちしております。精霊棚の設置や盆提灯の飾り方などのご相談も承ります。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>施餓鬼会</h4>
+                                    <div class="event-date">8月15日</div>
+                                    <p>
+                                        無縁仏や餓鬼道に堕ちた霊を供養し、世界平和を祈願する法要です。「施餓鬼」とは「餓鬼に施す」という意味で、飢えに苦しむ霊に食べ物を与え、苦しみから解放するという慈悲の行いです。どなたでもご参加いただけます。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="autumn" class="event-section">
+                        <h3>秋の行事</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>秋季彼岸会</h4>
+                                    <div class="event-date">9月20日〜26日</div>
+                                    <p>
+                                        秋分の日を中心とした一週間、春季彼岸会と同様、ご先祖様をご供養する大切な法要です。この時期は昼と夜の長さが同じになり、自然と調和する時期とされています。ご先祖様への感謝の気持ちを込めて、ご参拝ください。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>十夜法要</h4>
+                                    <div class="event-date">10月15日</div>
+                                    <p>
+                                        阿弥陀如来様の本願を讃える法要です。阿弥陀如来様の四十八願を称え、極楽浄土への往生を願います。夜に行われる厳かな法要で、蝋燭の灯りが幻想的な雰囲気を作り出します。心静かに仏の教えに触れる機会となります。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="museum.html" class="btn-link">資料館のご案内はこちら</a>
+                        </div>
+                    </section>
+
+                    <section id="winter" class="event-section">
+                        <h3>冬の行事</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>除夜の鐘</h4>
+                                    <div class="event-date">12月31日</div>
+                                    <p>
+                                        年の瀬に108つの煩悩を払い、新年を迎える行事です。除夜の鐘は108回突かれ、それぞれの音色が一つずつ煩悩を取り除くと言われています。どなたでも参加できますので、年末のひとときを静かな祈りの中でお過ごしください。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-content">
+                                    <h4>修正会</h4>
+                                    <div class="event-date">1月1日〜3日</div>
+                                    <p>
+                                        新年の法要です。皆様の一年の安穏と幸福をお祈りいたします。新年の初詣を兼ねて、ぜひお参りください。この期間は特別な御守りや御札も授与しております。新しい年の始まりを清らかな気持ちでお迎えください。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="calendar-section">
+                        <h3>年間行事カレンダー</h3>
+                        <p>詳細な日程や時間、その他の行事については、お電話またはお問い合わせフォームにてご確認ください。法要の予約や法事についてのご相談も承っております。</p>
+                        <a href="contact.html" class="btn-link">お問い合わせはこちら</a>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <a href="index.html" class="back-button">ホームに戻る</a>
+
+        <!-- フッターコンテナ -->
+        <div id="footer-container"></div>
+
+        <!--ページの上部へ戻るボタン-->
+        <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+        <!--ハンバーガーメニュー-->
+        <a href="menu.html">
+            <div id="menubar_hdr">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/main.js"></script>
+
+    <!-- フッター読み込み用スクリプト -->
+    <script src="js/footer-loader.js"></script>
+</body>
+
+</html>

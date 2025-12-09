@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>年間行事 - 真言宗智山派 蓮花院</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="蓮花院の年間行事のご案内です。季節ごとの法要や行事について紹介しています。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            background-color: #f8f5f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .small {
+            display: block;
+            font-size: 0.5em;
+            margin-top: 3px;
+            color: #666;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 年間行事ページのスタイル */
+        .events-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .events-intro p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .event-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .event-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .event-item:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-date {
+            color: #8b4513;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .event-title {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.3em;
+        }
+
+        .event-description {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* イベント説明文のスタイル修正 */
+        .event-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: #8b4513;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-link:hover {
+            background-color: #a05c2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* カレンダーセクションのスタイル */
+        .calendar-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .calendar-section h3 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .calendar-section p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: #555;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .events-intro p {
+                font-size: 1em;
+            }
+
+            .event-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .content-container {
+                padding: 15px;
+            }
+
+            .events-intro {
+                padding: 0 10px;
+            }
+
+            .event-image {
+                height: 180px;
+            }
+
+            .event-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1 id="logo"><a href="index.html"><img src="images/logo_tate.png" alt="蓮花院"></a></h1>
+        </header>
+
+        <div id="contents">
+            <main>
+                <div class="container">
+                    <h2>年間行事<span class="small">Annual Events</span></h2>
+
+                    <div class="events-intro">
+                        <p>蓮花院では、年間を通じて様々な仏教行事や法要を執り行っております。これらの行事は仏教の教えに基づき、皆様の心の安らぎと成長を願って行われます。</p>
+                        <p>どなたでもご参加いただけますので、お気軽にお越しください。詳細な日程や時間については、お電話またはお問い合わせフォームにてご確認ください。</p>
+                    </div>
+
+                    <section id="spring" class="season-section">
+                        <div class="season-header">
+                            <div class="season-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>春の行事</h3>
+                        </div>
+                        <div class="event-list">
+                <div class="events-intro">
+                    <p>蓮花院では、年間を通じて様々な仏教行事や法要を執り行っております。これらの行事は仏教の教えに基づき、皆様の心の安らぎと成長を願って行われます。</p>
+                    <p>どなたでもご参加いただけますので、お気軽にお越しください。詳細な日程や時間については、お電話またはお問い合わせフォームにてご確認ください。</p>
+                </div>
+
+                <section id="spring" class="season-section">
+                    <div class="season-header">
+                        <div class="season-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>春の行事</h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>春季彼岸会</h4>
+                                <div class="event-date">3月18日〜24日</div>
+                                <p>
+                                    春分の日を中心とした一週間、ご先祖様をご供養する大切な法要です。彼岸とは、迷いの世界である此岸から、悟りの世界である彼岸へ渡ることを意味します。期間中は本堂にて読経を行い、ご先祖様の冥福をお祈りいたします。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>花まつり</h4>
+                                <div class="event-date">4月8日</div>
+                                <p>
+                                    お釈迦様の誕生日を祝う行事です。甘茶の接待があり、お釈迦様の誕生仏に甘茶をかけて祝います。子どもたちも参加できる楽しい行事となっております。この日に参拝すると、一年の無病息災が約束されると言われています。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="summer" class="season-section">
+                    <div class="season-header">
+                        <div class="season-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3>夏の行事</h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>お盆法要</h4>
+                                <div class="event-date">8月13日〜16日</div>
+                                <p>
+                                    ご先祖様の霊がこの世に戻ってくるとされるお盆の期間、ご先祖様の供養を行います。期間中は本堂にて読経を行い、ご供養いたします。ご家族でのご参拝をお待ちしております。精霊棚の設置や盆提灯の飾り方などのご相談も承ります。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>施餓鬼会</h4>
+                                <div class="event-date">8月15日</div>
+                                <p>
+                                    無縁仏や餓鬼道に堕ちた霊を供養し、世界平和を祈願する法要です。「施餓鬼」とは「餓鬼に施す」という意味で、飢えに苦しむ霊に食べ物を与え、苦しみから解放するという慈悲の行いです。どなたでもご参加いただけます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="autumn" class="season-section">
+                    <div class="season-header">
+                        <div class="season-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>秋の行事</h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>秋季彼岸会</h4>
+                                <div class="event-date">9月20日〜26日</div>
+                                <p>
+                                    秋分の日を中心とした一週間、春季彼岸会と同様、ご先祖様をご供養する大切な法要です。この時期は昼と夜の長さが同じになり、自然と調和する時期とされています。ご先祖様への感謝の気持ちを込めて、ご参拝ください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>十夜法要</h4>
+                                <div class="event-date">10月15日</div>
+                                <p>
+                                    阿弥陀如来様の本願を讃える法要です。阿弥陀如来様の四十八願を称え、極楽浄土への往生を願います。夜に行われる厳かな法要で、蝋燭の灯りが幻想的な雰囲気を作り出します。心静かに仏の教えに触れる機会となります。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="museum.html" class="btn-link">資料館のご案内はこちら</a>
+                    </div>
+                </section>
+
+                <section id="winter" class="season-section">
+                    <div class="season-header">
+                        <div class="season-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3>冬の行事</h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>除夜の鐘</h4>
+                                <div class="event-date">12月31日</div>
+                                <p>
+                                    年の瀬に108つの煩悩を払い、新年を迎える行事です。除夜の鐘は108回突かれ、それぞれの音色が一つずつ煩悩を取り除くと言われています。どなたでも参加できますので、年末のひとときを静かな祈りの中でお過ごしください。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-content">
+                                <h4>修正会</h4>
+                                <div class="event-date">1月1日〜3日</div>
+                                <p>
+                                    新年の法要です。皆様の一年の安穏と幸福をお祈りいたします。新年の初詣を兼ねて、ぜひお参りください。この期間は特別な御守りや御札も授与しております。新しい年の始まりを清らかな気持ちでお迎えください。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="calendar-section">
+                    <h3>年間行事カレンダー</h3>
+                    <p>詳細な日程や時間、その他の行事については、お電話またはお問い合わせフォームにてご確認ください。法要の予約や法事についてのご相談も承っております。</p>
+                    <a href="contact.html" class="btn-link">お問い合わせはこちら</a>
+                </section>
+            </main>
+        </div>
+
+        <a href="index.html" class="back-button">ホームに戻る</a>
+
+        <!-- フッターコンテナ -->
+        <div id="footer-container"></div>
+
+        <!--ページの上部へ戻るボタン-->
+        <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+        <!--ハンバーガーメニュー-->
+        <a href="menu.html">
+            <div id="menubar_hdr">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/main.js"></script>
+
+    <!-- フッター読み込み用スクリプト -->
+    <script src="js/footer-loader.js"></script>
+</body>
+
+</html>

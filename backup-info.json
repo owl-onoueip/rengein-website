@@ -1,0 +1,15 @@
+{
+    "latest_number":  2,
+    "backups":  [
+                    {
+                        "date":  "2025-03-07",
+                        "number":  1,
+                        "description":  "法要案内セクションのレイアウトを修正（2024年3月7日）"
+                    },
+                    {
+                        "date":  "2025-03-07",
+                        "number":  2,
+                        "description":  "houyou-annai section layout fix (2024-03-07)"
+                    }
+                ]
+}

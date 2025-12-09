@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メニュー - 蓮花院</title>
+    <style>
+        body {
+            font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "游明朝", YuMincho, "MS P明朝", "MS PMincho", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b4513;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .menu-section {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-section h2 {
+            color: #8b4513;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-list li {
+            margin-bottom: 15px;
+        }
+
+        .menu-list a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu-list a:hover {
+            background-color: rgba(255, 223, 0, 0.2);
+            padding-left: 15px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            background-color: #8b4513;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #6d3611;
+        }
+
+        .sub-menu {
+            padding-left: 20px;
+        }
+
+        .sub-menu li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <h1>蓮花院 メニュー</h1>
+
+        <div class="menu-section">
+            <h2>メインメニュー</h2>
+            <ul class="menu-list">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="about.html">寺院について</a></li>
+                <li>
+                    <a href="events.html">年間行事</a>
+                    <ul class="sub-menu">
+                        <li><a href="events.html#obon">お盆法要</a></li>
+                        <li><a href="events.html#seigaki">施餓鬼会</a></li>
+                        <li><a href="events.html#monthly">月忌法要</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h2>寺院について</h2>
+            <ul class="menu-list">
+                <li><a href="#">蓮花院の歴史</a></li>
+                <li><a href="#">ご住職挨拶</a></li>
+                <li><a href="#">境内案内</a></li>
+                <li><a href="#">アクセス</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h2>ご案内</h2>
+            <ul class="menu-list">
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">法要のご予約</a></li>
+                <li><a href="#">お布施について</a></li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-button">ホームに戻る</a>
+    </div>
+</body>
+
+</html>

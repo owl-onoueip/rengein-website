@@ -1,0 +1,251 @@
+//===============================================================
+// debounce関数
+//===============================================================
+function debounce(func, wait) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+
+//===============================================================
+// メニュー関連
+//===============================================================
+
+// 変数でセレクタを管理
+var $menubar = $('#menubar');
+var $menubarHdr = $('#menubar_hdr');
+
+// 即時実行関数でハンバーガーメニューを強制的に表示
+(function () {
+    console.log("即時実行関数が実行されました");
+
+    // ハンバーガーメニューを強制表示（遅延実行）
+    setTimeout(function () {
+        console.log("ハンバーガーメニューを強制表示します");
+        $('#menubar_hdr').css({
+            'display': 'block',
+            'opacity': '1',
+            'visibility': 'visible',
+            'position': 'fixed',
+            'z-index': '9999',
+            'top': '20px',
+            'right': '20px'
+        }).show();
+    }, 100);
+})();
+
+// DOMが完全に読み込まれた後に実行
+$(document).ready(function () {
+    console.log("DOM読み込み完了");
+
+    // メニュー内のリンクをクリックした時にメニューを閉じる
+    $("#menubar a").on("click", function () {
+        $("#menubar").removeClass('display-block');
+        $("#menubar_hdr").removeClass('ham');
+    });
+
+    // 直接クリックイベントを設定
+    $("#menubar_hdr").on("click", function () {
+        console.log("ハンバーガーメニューがクリックされました");
+        $(this).toggleClass('ham');
+        $("#menubar").toggleClass('display-block');
+    });
+});
+
+// ページ読み込み完了後に実行
+$(window).on('load', function () {
+    console.log("ページ読み込み完了");
+
+    // ハンバーガーメニューを再度強制表示
+    $('#menubar_hdr').css({
+        'display': 'block',
+        'opacity': '1',
+        'visibility': 'visible'
+    }).show();
+});
+
+
+//===============================================================
+// 小さなメニューが開いている際のみ、body要素のスクロールを禁止。
+//===============================================================
+$(function () {
+    function toggleBodyScroll() {
+        // 条件をチェック
+        if ($('#menubar_hdr').hasClass('ham') && !$('#menubar_hdr').hasClass('display-none')) {
+            // #menubar_hdr が 'ham' クラスを持ち、かつ 'display-none' クラスを持たない場合、スクロールを禁止
+            $('body').css({
+                overflow: 'hidden',
+                height: '100%'
+            });
+        } else {
+            // その他の場合、スクロールを再び可能に
+            $('body').css({
+                overflow: '',
+                height: ''
+            });
+        }
+    }
+
+    // 初期ロード時にチェックを実行
+    toggleBodyScroll();
+
+    // クラスが動的に変更されることを想定して、MutationObserverを使用
+    const observer = new MutationObserver(toggleBodyScroll);
+    observer.observe(document.getElementById('menubar_hdr'), { attributes: true, attributeFilter: ['class'] });
+});
+
+
+//===============================================================
+// スムーススクロール（※バージョン2024-1）※通常タイプ
+//===============================================================
+$(function () {
+    // ページ上部へ戻るボタンのセレクター
+    var topButton = $('.pagetop');
+    // ページトップボタン表示用のクラス名
+    var scrollShow = 'pagetop-show';
+
+    // スムーススクロールを実行する関数
+    // targetにはスクロール先の要素のセレクターまたは'#'（ページトップ）を指定
+    function smoothScroll(target) {
+        // スクロール先の位置を計算（ページトップの場合は0、それ以外は要素の位置）
+        var scrollTo = target === '#' ? 0 : $(target).offset().top;
+        // アニメーションでスムーススクロールを実行
+        $('html, body').animate({ scrollTop: scrollTo }, 500);
+    }
+
+    // ページ内リンクとページトップへ戻るボタンにクリックイベントを設定
+    $('a[href^="#"], .pagetop').click(function (e) {
+        e.preventDefault(); // デフォルトのアンカー動作をキャンセル
+        var id = $(this).attr('href') || '#'; // クリックされた要素のhref属性を取得、なければ'#'
+        smoothScroll(id); // スムーススクロールを実行
+    });
+
+    // スクロールに応じてページトップボタンの表示/非表示を切り替え
+    $(topButton).hide(); // 初期状態ではボタンを隠す
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= 300) { // スクロール位置が300pxを超えたら
+            $(topButton).fadeIn().addClass(scrollShow); // ボタンを表示
+        } else {
+            $(topButton).fadeOut().removeClass(scrollShow); // それ以外では非表示
+        }
+    });
+
+    // ページロード時にURLのハッシュが存在する場合の処理
+    if (window.location.hash) {
+        // ページの最上部に即時スクロールする
+        $('html, body').scrollTop(0);
+        // 少し遅延させてからスムーススクロールを実行
+        setTimeout(function () {
+            smoothScroll(window.location.hash);
+        }, 10);
+    }
+});
+
+
+//===============================================================
+// 汎用開閉処理
+//===============================================================
+$(function () {
+    $('.openclose-parts').next().hide();
+    $('.openclose-parts').click(function () {
+        $(this).next().slideToggle();
+        $('.openclose-parts').not(this).next().slideUp();
+    });
+});
+
+
+//===============================================================
+// 詳細ページのサムネイル切り替え
+//===============================================================
+$(function () {
+    // 初期表示: 各 .thumbnail-view に対して、直後の .thumbnail の最初の画像を表示
+    $(".thumbnail-view-parts").each(function () {
+        var firstThumbnailSrc = $(this).next(".thumbnail-parts").find("img:first").attr("src");
+        var defaultImage = $("<img>").attr("src", firstThumbnailSrc);
+        $(this).append(defaultImage);
+    });
+
+    // サムネイルがクリックされたときの動作
+    $(".thumbnail-parts img").click(function () {
+        var imgSrc = $(this).attr("src");
+        var newImage = $("<img>").attr("src", imgSrc).hide();
+
+        // このサムネイルの直前の .thumbnail-view 要素を取得
+        var targetPhoto = $(this).parent(".thumbnail-parts").prev(".thumbnail-view-parts");
+
+        targetPhoto.find("img").fadeOut(400, function () {
+            targetPhoto.empty().append(newImage);
+            newImage.fadeIn(400);
+        });
+    });
+});
+
+
+//===============================================================
+// スライドショー 20240716版（※２枚以上の動画を使った場合の切り替え時を調整）
+//===============================================================
+$(function () {
+    var slides = $('#mainimg .slide');
+    var slideCount = slides.length;
+    var currentIndex = 0;
+
+    function playVideo(slide) {
+        var video = slide.find('video').get(0);
+        if (video) {
+            video.currentTime = 0; // 動画を最初のフレームに戻す
+            video.play(); // 動画を再生
+        }
+    }
+
+    function stopVideo(slide) {
+        var video = slide.find('video').get(0);
+        if (video) {
+            video.pause(); // 動画を停止
+        }
+    }
+
+    // 最初の待機時間中に「loading...」テキストを表示
+    $('#loading-text').show();
+
+    setTimeout(function () {
+        // 待機時間が終わったら「loading...」テキストを非表示に
+        $('#loading-text').hide();
+
+        slides.eq(currentIndex).css('opacity', 1).addClass('active');
+        playVideo(slides.eq(currentIndex)); // 最初のスライドの動画を再生
+
+        setInterval(function () {
+            var nextIndex = (currentIndex + 1) % slideCount;
+
+            stopVideo(slides.eq(currentIndex)); // 現在のスライドの動画を停止
+
+            slides.eq(currentIndex).css('opacity', 0).removeClass('active');
+            slides.eq(nextIndex).css('opacity', 1).addClass('active');
+
+            playVideo(slides.eq(nextIndex)); // 次のスライドの動画を再生
+
+            currentIndex = nextIndex;
+        }, 5000); // 5秒ごとにスライドを切り替える
+    }, 3000); // 最初のスライドを表示する前に3秒待機
+});
+
+
+//===============================================================
+// 汎用開閉処理
+//===============================================================
+$(function () {
+    $('.openclose').next().hide();
+    $('.openclose').click(function () {
+        $(this).next().slideToggle();
+        $('.openclose').not(this).next().slideUp();
+    });
+});
+

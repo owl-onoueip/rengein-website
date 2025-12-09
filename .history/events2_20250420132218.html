@@ -1,0 +1,307 @@
+。ｈｔｍｌ。ｈｔｍｌ<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="蓮花院の年間行事をご紹介します。">
+    <title>年間行事 - 蓮花院</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        :root {
+            --main-color: #8b4513;
+            --accent-color: #a05c2b;
+            --bg-color: #f8f5f0;
+            --text-color: #333;
+            --light-accent: rgba(139, 69, 19, 0.1);
+        }
+
+        body {
+            font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        .header-wrapper {
+            background: url('images/slide1.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            padding: 20px 0 40px;
+        }
+
+        .header-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .temple-title {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            letter-spacing: 0.15em;
+            font-weight: normal;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .temple-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            margin-top: -30px;
+            position: relative;
+            z-index: 3;
+            background: var(--bg-color);
+            border-radius: 15px 15px 0 0;
+            padding-top: 40px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 年間行事セクション */
+        .events-section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--main-color);
+            position: relative;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            font-size: 2.2em;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--main-color);
+            margin: 15px auto 0;
+            border-radius: 3px;
+        }
+
+        .section-title .small {
+            display: block;
+            font-size: 0.45em;
+            margin-top: 8px;
+            color: #666;
+            letter-spacing: 0.05em;
+        }
+
+        /* ナビゲーション */
+        .page-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .page-nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .page-nav a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--main-color);
+            text-decoration: none;
+            border: 1px solid var(--main-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-nav a:hover {
+            background: var(--main-color);
+            color: white;
+        }
+
+        /* 行事カード */
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .event-title {
+            color: var(--main-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-accent);
+        }
+
+        .event-date {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .event-description {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* レスポンシブ調整 */
+        @media (max-width: 768px) {
+            .temple-title {
+                font-size: 1.8em;
+            }
+
+            .temple-subtitle {
+                font-size: 0.9em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .page-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .page-nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <header>
+            <h1 class="temple-title">蓮花院</h1>
+            <p class="temple-subtitle">年間行事</p>
+        </header>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <section class="events-section">
+                <h2 class="section-title">年間行事<span class="small">Annual Events</span></h2>
+
+                <div class="page-nav">
+                    <ul>
+                        <li><a href="#spring">春季行事</a></li>
+                        <li><a href="#summer">夏季行事</a></li>
+                        <li><a href="#autumn">秋季行事</a></li>
+                        <li><a href="#winter">冬季行事</a></li>
+                    </ul>
+                </div>
+
+                <div id="spring" class="event-card">
+                    <h3 class="event-title">春季彼岸会</h3>
+                    <p class="event-date">3月20日</p>
+                    <p class="event-description">春分の日を中心に、先祖供養の法要を行います。多くの方々が参拝され、先祖の霊を供養します。</p>
+                </div>
+
+                <div id="summer" class="event-card">
+                    <h3 class="event-title">お盆法要</h3>
+                    <p class="event-date">8月13日～15日</p>
+                    <p class="event-description">先祖の霊を迎え、供養する大切な行事です。期間中は様々な法要が行われます。</p>
+                </div>
+
+                <div id="autumn" class="event-card">
+                    <h3 class="event-title">秋季彼岸会</h3>
+                    <p class="event-date">9月23日</p>
+                    <p class="event-description">秋分の日を中心に、先祖供養の法要を行います。春と同様に、多くの方々が参拝されます。</p>
+                </div>
+
+                <div id="winter" class="event-card">
+                    <h3 class="event-title">除夜の鐘</h3>
+                    <p class="event-date">12月31日</p>
+                    <p class="event-description">大晦日の夜、108回の鐘を撞き、一年の罪業を祓い、新年を迎えます。</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- フッターコンテナ -->
+    <div id="footer-container">
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <h3 class="footer-title">蓮花院</h3>
+                        <div class="footer-address">
+                            <p>〒346-0022 埼玉県久喜市下早見3-1-1</p>
+                            <p>電話：0480-21-2636</p>
+                            <p>受付時間：午前9時から午後5時まで</p>
+                        </div>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-links">
+                            <a href="index.html"><i class="fas fa-home"></i> ホーム</a>
+                            <a href="about.html"><i class="fas fa-info-circle"></i> 寺院について</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> 年間行事</a>
+                            <a href="museum.html"><i class="fas fa-landmark"></i> 資料館</a>
+                            <a href="about.html#access"><i class="fas fa-map-marker-alt"></i> アクセス</a>
+                            <a href="contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright &copy; <span id="current-year"></span> <a href="index.html">蓮花院</a> All Rights
+                        Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/main.js"></script>
+
+    <!-- フッター読み込み用スクリプト -->
+    <script src="js/footer-loader.js"></script>
+
+    <!-- 現在の年を自動的に挿入するスクリプト -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

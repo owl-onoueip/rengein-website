@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Renge-in Temple</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f8f5f0;
+			color: #333;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		header {
+			text-align: center;
+			padding: 50px 0;
+			position: relative;
+		}
+
+		h1 {
+			color: #8b4513;
+			font-size: 2.5em;
+		}
+
+		.content {
+			margin-top: 50px;
+			min-height: 400px;
+		}
+
+		h2 {
+			color: #8b4513;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		/* 言語切り替え */
+		.lang-switch {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+
+		.lang-switch a {
+			display: inline-block;
+			padding: 5px 15px;
+			background: #8b4513;
+			color: #fff;
+			border-radius: 3px;
+			font-size: 0.9em;
+			text-decoration: none;
+		}
+
+		/* メニューボタン */
+		.menu-button {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			width: 60px;
+			height: 60px;
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			z-index: 1000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+		}
+
+		.menu-icon {
+			width: 30px;
+			height: 20px;
+			position: relative;
+		}
+
+		.menu-icon span {
+			display: block;
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background: #8b4513;
+			border-radius: 3px;
+		}
+
+		.menu-icon span:nth-child(1) {
+			top: 0;
+		}
+
+		.menu-icon span:nth-child(2) {
+			bottom: 0;
+		}
+
+		/* フッター */
+		footer {
+			background: #333;
+			color: #fff;
+			padding: 20px 0;
+			margin-top: 50px;
+			text-align: center;
+		}
+
+		footer p {
+			margin: 5px 0;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		/* ウェルカムセクション */
+		.welcome-section {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 50px;
+		}
+
+		.welcome-message {
+			background-color: rgba(255, 255, 255, 0.7);
+			padding: 30px;
+			border-left: 3px solid #8b4513;
+			margin-bottom: 30px;
+			max-width: 800px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		}
+
+		.welcome-message p {
+			margin-bottom: 15px;
+			line-height: 1.8;
+		}
+
+		.temple-image {
+			width: 100%;
+			max-width: 800px;
+			height: 400px;
+			object-fit: cover;
+			border-radius: 5px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			margin-bottom: 30px;
+		}
+
+		/* セクション */
+		.section {
+			padding: 50px 0;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 40px;
+			color: #8b4513;
+			position: relative;
+		}
+
+		.section-title::after {
+			content: '';
+			display: block;
+			width: 50px;
+			height: 2px;
+			background: #8b4513;
+			margin: 15px auto;
+		}
+
+		.section-title .small {
+			display: block;
+			font-size: 0.5em;
+			margin-top: 5px;
+			color: #666;
+		}
+
+		/* イベントカード */
+		.card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 30px;
+		}
+
+		.card {
+			background: #fff;
+			border-radius: 5px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+			transition: transform 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		}
+
+		.card-image {
+			height: 200px;
+			overflow: hidden;
+		}
+
+		.card-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.5s ease;
+		}
+
+		.card:hover .card-image img {
+			transform: scale(1.05);
+		}
+
+		.card-content {
+			padding: 20px;
+		}
+
+		.card-title {
+			margin-bottom: 10px;
+			color: #8b4513;
+		}
+
+		.card-text {
+			margin-bottom: 20px;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 8px 20px;
+			background: #8b4513;
+			color: #fff;
+			border-radius: 3px;
+			transition: all 0.3s ease;
+			text-decoration: none;
+		}
+
+		.btn:hover {
+			background: #a05c2b;
+			color: #fff;
+		}
+
+		/* レスポンシブ */
+		@media (max-width: 768px) {
+			.card-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>Renge-in Temple</h1>
+			<div class="lang-switch">
+				<a href="index.html">日本語</a>
+			</div>
+		</header>
+
+		<div class="welcome-section">
+			<img src="images/slide1.jpg" alt="Renge-in Temple" class="temple-image">
+
+			<div class="welcome-message">
+				<p>Welcome to Renge-in Temple.</p>
+				<p>Our temple has been a place of spiritual comfort for the local community since ancient times.</p>
+				<p>We offer daily prayers and seasonal events to bring peace to your heart.</p>
+				<p>Please feel free to visit our temple and experience the tranquility of Japanese Buddhism.</p>
+			</div>
+		</div>
+
+		<section class="section">
+			<h2 class="section-title">Annual Events<span class="small">年間行事</span></h2>
+
+			<div class="card-grid">
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample1.jpg" alt="Obon Festival">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Obon Festival</h3>
+						<p class="card-text">From August 13th to 16th, we hold memorial services for ancestors. Please
+							visit with your family for spirit altar decorations and grave visits.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample2.jpg" alt="Segaki Service">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Segaki Service</h3>
+						<p class="card-text">On August 15th, we hold a memorial service for the souls of the deceased
+							who have no living relatives to remember them and pray for world peace.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample3.jpg" alt="Monthly Memorial Service">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Monthly Memorial Service</h3>
+						<p class="card-text">On the 1st and 15th of each month, we hold memorial services for ancestors
+							and pray for the health of your family.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2 class="section-title">Temple Information<span class="small">寺院案内</span></h2>
+
+			<div class="card-grid">
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample1.jpg" alt="Temple Services">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Temple Services</h3>
+						<p class="card-text">We offer various services including memorial services for ancestors and
+							prayers for family health. Please feel free to contact us.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample2.jpg" alt="Temple Grounds">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Temple Grounds</h3>
+						<p class="card-text">Our temple grounds include the main hall, pagoda, bell tower, and garden.
+							Enjoy the peaceful atmosphere surrounded by nature throughout the seasons.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-image">
+						<img src="images/sample3.jpg" alt="Access Information">
+					</div>
+					<div class="card-content">
+						<h3 class="card-title">Access Information</h3>
+						<p class="card-text">Located in Kuki City, Saitama Prefecture. 20 minutes walk from Kuki Station
+							on the Tobu Isesaki Line, or 10 minutes by car from Kuki IC on the Tohoku Expressway.</p>
+						<a href="#" class="btn">See more</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<div class="container">
+			<p>Renge-in Temple</p>
+			<p>725 Shimohayami, Kuki City, Saitama Prefecture, 346-0022</p>
+			<p>Tel: 0480-21-2636</p>
+			<p>Copyright &copy; <a href="index.html">蓮花院</a> All Rights Reserved.</p>
+		</div>
+	</footer>
+
+	<a href="menu.html" class="menu-button">
+		<div class="menu-icon">
+			<span></span>
+			<span></span>
+		</div>
+	</a>
+</body>
+
+</html>

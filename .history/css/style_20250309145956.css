@@ -1,0 +1,259 @@
+/* 
+* 寺院ホームページ共通スタイルシート
+* 作成日: 2024年
+*/
+
+/* ハンバーガーメニューボタンのスタイル */
+#menubar_hdr {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border: 2px solid #8b4513;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#menubar_hdr:hover {
+    background-color: rgba(139, 69, 19, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-icon span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #8b4513;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ハンバーガーアイコンの3本線の位置設定 */
+.menu-icon span:nth-child(1) {
+    top: 10px;
+}
+
+.menu-icon span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-icon span:nth-child(3) {
+    bottom: 10px;
+}
+
+/* タイムライン関連のスタイル */
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.timeline-left {
+    left: 0;
+}
+
+.timeline-right {
+    left: 55%;
+}
+
+.timeline-year {
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* 住職の挨拶セクション */
+.message-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.message-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.message-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-image p {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.message-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.message-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* 引用ブロック */
+blockquote {
+    position: relative;
+    padding: 30px 30px 30px 50px;
+    background-color: #f9f5f0;
+    border-left: 4px solid #8b4513;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+blockquote:before {
+    content: "\201C";
+    font-family: serif;
+    position: absolute;
+    font-size: 60px;
+    color: #d0b89c;
+    left: 10px;
+    top: -10px;
+}
+
+/* アクセス情報 */
+.access-content {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.access-info {
+    margin-bottom: 15px;
+}
+
+.access-info h4 {
+    border-bottom: 2px solid #8b4513;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: #8b4513;
+}
+
+.access-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.access-info ul li {
+    margin-bottom: 10px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.access-info ul li i {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 20px;
+    color: #8b4513;
+}
+
+/* 共通のセクションスタイル */
+.section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 見出しスタイル */
+h2 {
+    text-align: center;
+    color: #8b4513;
+    margin: 10px 0 15px;
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 1.6em;
+    line-height: 1.2;
+}
+
+.small {
+    display: block;
+    font-size: 0.45em;
+    margin-top: 3px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* 共通のレスポンシブスタイル */
+@media screen and (max-width: 768px) {
+    #menubar_hdr {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .timeline-content {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .timeline-left,
+    .timeline-right {
+        left: 0;
+    }
+
+    .message-content {
+        flex-direction: column;
+    }
+
+    .message-image,
+    .message-text {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #menubar_hdr {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+}

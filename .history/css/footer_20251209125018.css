@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* フッター全体 */
+footer {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    padding: 60px 0 30px;
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", serif;
+    position: relative;
+    border-top: 4px solid #8b4513;
+}
+
+/* コンテナ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* フッターコンテンツレイアウト */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+/* 左側：寺院情報 */
+.footer-info {
+    flex: 1;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-info {
+        text-align: left;
+        margin-right: 60px;
+    }
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.5);
+    padding-bottom: 10px;
+}
+
+.footer-address p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+/* 右側：ナビゲーション */
+.footer-nav {
+    flex: 1;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .footer-links {
+        justify-content: flex-end;
+    }
+}
+
+.footer-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.footer-links a i {
+    margin-right: 8px;
+    color: #8b4513;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover i {
+    color: #a05c2b;
+}
+
+/* コピーライト */
+.footer-copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.footer-copyright a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-copyright a:hover {
+    color: #fff;
+}

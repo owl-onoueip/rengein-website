@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Renge-in Temple</title>
+    <meta name="description"
+        content="Explore the various religious services and ceremonies offered at Renge-in Temple, including memorial services, blessings, and meditation sessions.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Noto Serif', 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f8f5f0;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .text-logo {
+            font-family: 'Noto Serif', 'Times New Roman', serif;
+            color: #8b4513;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text-logo .main-title {
+            font-size: 2.8em;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            display: block;
+        }
+
+        .text-logo .subtitle {
+            font-size: 1.2em;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: #8b4513;
+            opacity: 0.8;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #f8f5f0;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #8b4513;
+            font-size: 1.1em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #5d2e0d;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8b4513;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Language switch */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-switch a {
+            text-decoration: none;
+            color: #8b4513;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border: 1px solid #8b4513;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch a:hover {
+            background-color: #8b4513;
+            color: #fff;
+        }
+
+        /* Page header */
+        .page-header {
+            background-color: rgba(139, 69, 19, 0.1);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            color: #8b4513;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Services intro */
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .services-intro p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* Service categories */
+        .service-category {
+            margin-bottom: 80px;
+        }
+
+        .service-category h2 {
+            color: #8b4513;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-category h2::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: #8b4513;
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Service cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-card-image img {
+            transform: scale(1.05);
+        }
+
+        .service-card-content {
+            padding: 25px;
+        }
+
+        .service-card h3 {
+            color: #8b4513;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+        }
+
+        .service-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .service-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .service-detail i {
+            color: #8b4513;
+            margin-right: 10px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* Meditation section */
+        .meditation-schedule {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .schedule-table th {
+            background-color: rgba(139, 69, 19, 0.05);
+            color: #8b4513;
+            font-weight: 500;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Request form section */
+        .request-form-section {
+            background-color: rgba(139, 69, 19, 0.05);
+            padding: 60px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .request-form-section h2 {
+            color: #8b4513;
+            margin-bottom: 30px;
+        }
+
+        .request-form-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background-color: #8b4513;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #6d3610;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.3em;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: #8b4513;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .text-logo .main-title {
+                font-size: 2.2em;
+            }
+
+            .text-logo .subtitle {
+                font-size: 1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            .page-header {
+                padding: 40px 0;
+            }
+
+            .page-header h1 {
+                font-size: 2em;
+            }
+
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-table {
+                font-size: 0.9em;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="text-logo">
+                <a href="index_en.html">
+                    <span class="main-title">Renge-in Temple</span>
+                    <span class="subtitle">Shingon Buddhism</span>
+                </a>
+            </h1>
+            <div class="lang-switch">
+                <a href="services.html">日本語</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="about_en.html">About</a></li>
+                <li><a href="services_en.html" class="active">Services</a></li>
+                <li><a href="events_en.html">Events</a></li>
+                <li><a href="gallery_en.html">Gallery</a></li>
+                <li><a href="contact_en.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Temple Services</h1>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="services-intro">
+                <p>Renge-in Temple offers a variety of religious services and ceremonies rooted in the traditions of
+                    Shingon Buddhism. Our services are designed to provide spiritual guidance, commemorate important
+                    life events, and honor ancestors.</p>
+                <p>Whether you are seeking personal spiritual growth, wishing to honor departed loved ones, or
+                    celebrating important milestones, our experienced priests are here to guide you through these sacred
+                    practices.</p>
+            </div>
+
+            <section class="service-category">
+                <h2>Memorial Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample1.jpg" alt="Annual Memorial Service">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Annual Memorial Services</h3>
+                            <p>Annual memorial services (nenki hōyō) are conducted to commemorate the anniversary of a
+                                loved one's passing. These services are traditionally held on the 1st, 3rd, 7th, 13th,
+                                17th, 23rd, 27th, and 33rd anniversaries.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duration: Approximately 45 minutes</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Participants: Family members and close friends</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Scheduling: Please contact us at least two weeks in advance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample2.jpg" alt="Obon Service">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Obon Services</h3>
+                            <p>During the Obon festival in August, we conduct special memorial services to honor
+                                ancestors and departed loved ones. This is a time when the spirits of the deceased are
+                                believed to return to this world to visit their relatives.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duration: Various services throughout the Obon period</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Dates: August 13-16 annually</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Special lantern ceremony on the evening of August 16</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample3.jpg" alt="Segaki Service">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Segaki Service</h3>
+                            <p>The Segaki service is held to remember and honor those who have passed away without
+                                family to remember them. This compassionate ceremony helps ease the suffering of hungry
+                                ghosts and brings peace to wandering spirits.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duration: Approximately 1 hour</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Date: August 15 during Obon</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Open to all temple visitors and community members</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="service-category">
+                <h2>Blessing Ceremonies</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample4.jpg" alt="Home Blessing">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Home Blessing</h3>
+                            <p>Our priests can perform blessing ceremonies for new homes or businesses to purify the
+                                space and invite positive energy. These ceremonies help establish a sacred and
+                                harmonious environment for your family or business.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duration: Approximately 30-45 minutes</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location: At your home or business</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Scheduling: Please contact us at least one week in advance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample1.jpg" alt="Personal Blessing">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Personal Blessings</h3>
+                            <p>Personal blessing ceremonies can be performed for various life events such as birthdays,
+                                academic achievements, career advancements, or recovery from illness. These ceremonies
+                                invoke divine protection and positive energy.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duration: Approximately 20-30 minutes</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location: At the temple or your location</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Available daily by appointment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="images/sample2.jpg" alt="Amulet Blessing">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Amulet and Talisman Blessings</h3>
+                            <p>We offer blessed amulets and talismans (omamori) for various purposes such as health,
+                                safety, academic success, and business prosperity. Each amulet is blessed through a
+                                special ritual to imbue it with protective energy.</p>
+                            <div class="service-details">
+                                <div class="service-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Available at the temple reception area</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Available during temple opening hours</span>
+                                </div>
+                                <div class="service-detail">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Special amulets available during New Year and other festivals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="service-category">
+                <h2>Meditation and Spiritual Practices</h2>
+                <p>Meditation is a core practice in Shingon Buddhism, helping practitioners develop mindfulness,
+                    compassion, and insight. We offer regular meditation sessions for both beginners and experienced
+                    practitioners.</p>
+
+                <div class="meditation-schedule">
+                    <h3>Weekly Meditation Schedule</h3>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Level</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>6:00 - 7:00 AM</td>
+                                <td>Zazen (Seated Meditation)</td>
+                                <td>All Levels</td>
+                                <td>Main Hall</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>6:00 - 7:30 PM</td>
+                                <td>Guided Meditation</td>
+                                <td>Beginners</td>
+                                <td>Meditation Hall</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>9:00 - 11:00 AM</td>
+                                <td>Meditation & Dharma Talk</td>
+                                <td>All Levels</td>
+                                <td>Main Hall</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>4:00 - 5:30 PM</td>
+                                <td>Ajikan Meditation</td>
+                                <td>Intermediate</td>
+                                <td>Meditation Hall</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="margin-top: 20px;">For beginners, we offer introductory meditation classes on the first
+                        Saturday of each month from 2:00 to 3:30 PM. These sessions include basic instruction on
+                        meditation posture, breathing techniques, and mindfulness practices.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="request-form-section">
+            <div class="container">
+                <h2>Request a Service</h2>
+                <p>If you would like to request any of our services or have questions about our ceremonies, please don't
+                    hesitate to contact us. Our staff will be happy to provide you with more information and assist you
+                    in scheduling a service.</p>
+                <a href="contact_en.html" class="contact-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Renge-in Temple</h3>
+                    <p>A place of peace, spirituality, and cultural heritage in the Shingon Buddhist tradition.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about_en.html">About</a></li>
+                        <li><a href="services_en.html">Services</a></li>
+                        <li><a href="events_en.html">Events</a></li>
+                        <li><a href="gallery_en.html">Gallery</a></li>
+                        <li><a href="contact_en.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for updates on temple events and activities.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Renge-in Temple. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
