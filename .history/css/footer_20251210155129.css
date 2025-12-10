@@ -3,11 +3,11 @@
 /* フッター全体 */
 footer {
     background-color: #2a2a2a;
-    color: #f0f0f0;
+    color: #e0e0e0;
     padding: 40px 0 20px;
     font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", serif;
     position: relative;
-    border-top: 4px solid var(--main-color);
+    border-top: 4px solid #8b4513;
 }
 
 /* コンテナ */
@@ -54,7 +54,7 @@ footer {
     font-weight: normal;
     letter-spacing: 0.1em;
     display: inline-block;
-    border-bottom: 1px solid var(--main-color);
+    border-bottom: 1px solid rgba(139, 69, 19, 0.5);
     padding-bottom: 8px;
 }
 
@@ -62,7 +62,7 @@ footer {
     margin: 0 0 5px;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #ddd;
+    color: #ccc;
 }
 
 /* 右側：ナビゲーション */
@@ -87,7 +87,7 @@ footer {
 }
 
 .footer-links a {
-    color: #f0f0f0;
+    color: #e0e0e0;
     text-decoration: none;
     font-size: 0.9rem;
     transition: all 0.3s ease;
@@ -103,13 +103,13 @@ footer {
 
 .footer-links a i {
     margin-right: 8px;
-    color: var(--main-color);
+    color: #8b4513;
     font-size: 0.9em;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover i {
-    color: var(--accent-color);
+    color: #a05c2b;
 }
 
 /* コピーライト */
@@ -118,11 +118,11 @@ footer {
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8rem;
-    color: #aaa;
+    color: #888;
 }
 
 .footer-copyright a {
-    color: #ccc;
+    color: #aaa;
     text-decoration: none;
     transition: color 0.3s;
 }
