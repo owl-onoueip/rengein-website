@@ -24,6 +24,7 @@ compress_images_v*.ps1
 
 # Backups
 images/backup/
+images/unused/
 temple-backups/
 
 .history/
