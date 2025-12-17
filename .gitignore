@@ -15,5 +15,15 @@ Thumbs.db
 
 # Dependencies
 node_modules/
+package.json
+package-lock.json
+
+# Scripts
+compress_images.js
+compress_images_v*.ps1
+
+# Backups
+images/backup/
+temple-backups/
 
 .history/

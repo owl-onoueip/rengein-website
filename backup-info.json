@@ -1,15 +1,25 @@
 {
-    "latest_number":  2,
-    "backups":  [
-                    {
-                        "date":  "2025-03-07",
-                        "number":  1,
-                        "description":  "�@�v�ē��Z�N�V�����̃��C�A�E�g���C���i2024�N3��7���j"
-                    },
-                    {
-                        "date":  "2025-03-07",
-                        "number":  2,
-                        "description":  "houyou-annai section layout fix (2024-03-07)"
-                    }
-                ]
+    "latest_number": 4,
+    "backups": [
+        {
+            "date": "2025-12-18",
+            "number": 4,
+            "description": "高解像度画像の圧縮処理を実施（Top01.jpg等）"
+        },
+        {
+            "date": "2025-12-17",
+            "number": 3,
+            "description": "英語版ページと不要ファイルを削除（2025年12月17日）"
+        },
+        {
+            "date": "2025-03-07",
+            "number": 1,
+            "description": "法要案内セクションのレイアウトを修正（2024年3月7日）"
+        },
+        {
+            "date": "2025-03-07",
+            "number": 2,
+            "description": "houyou-annai section layout fix (2024-03-07)"
+        }
+    ]
 }

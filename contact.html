@@ -1394,22 +1394,41 @@
 
         // フォームの送信
         function submitForm() {
-            // 入力値をhiddenで新しいformにセットしてPOST
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'sendmail.php';
+            // Web3Formsを使用して送信
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
 
-            // 必要な値をhiddenで追加
-            ['name', 'email', 'phone', 'subject', 'message'].forEach(id => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = id;
-                input.value = document.getElementById(id).value;
-                form.appendChild(input);
-            });
+            // 送信ボタンを無効化
+            const submitBtn = document.querySelector('.button-group .submit-button');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
 
-            document.body.appendChild(form);
-            form.submit();
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 送信成功：完了画面を表示
+                        document.getElementById('confirm-form').style.display = 'none';
+                        document.getElementById('complete-form').style.display = 'block';
+                        window.scrollTo({
+                            top: document.getElementById('complete-form').offsetTop - 50,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        alert('送信に失敗しました。もう一度お試しください。');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = '送信する';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('送信中にエラーが発生しました。もう一度お試しください。');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '送信する';
+                });
         }
     </script>
 </body>
