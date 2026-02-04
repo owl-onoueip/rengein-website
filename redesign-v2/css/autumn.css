@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+/* ==========================================
+   秋の彼岸（施餓鬼）ページ専用スタイル
+   ========================================== */
+
+/* ------------------------------------------
+   ヒーローセクション
+   ------------------------------------------ */
+.autumn-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    background: url('../images/intro_slide2.webp') no-repeat center center/cover;
+    /* 仮画像: 後で紅葉に変更推奨 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.autumn-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 17, 40, 0.4);
+    /* ダークオーバーレイ */
+    z-index: 1;
+}
+
+/* 縦書きタイトル */
+.autumn-hero-title {
+    position: relative;
+    z-index: 2;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: var(--font-mincho);
+    color: var(--text-white);
+    font-size: min(10vw, 80px);
+    letter-spacing: 0.3em;
+    text-shadow: 0 0 20px rgba(255, 160, 0, 0.6);
+    opacity: 0;
+    animation: fadeUpVertical 2s ease-out forwards 0.5s;
+    height: auto;
+    max-height: 80vh;
+    border-right: 1px solid var(--warm-gold);
+    padding-right: 40px;
+    margin-right: 40px;
+}
+
+.autumn-hero-subtitle {
+    position: relative;
+    z-index: 2;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: var(--font-mincho);
+    color: var(--text-white);
+    font-size: 24px;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeUpVertical 2s ease-out forwards 1s;
+}
+
+@keyframes fadeUpVertical {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------
+   アーカイブセクション（動画・写真）
+   ------------------------------------------ */
+.archive-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3列にする */
+    gap: 30px;
+    max-width: 1200px;
+    /* 幅を広げる */
+    margin: 0 auto;
+}
+
+/* PC以外のレスポンシブ対応 */
+@media (max-width: 1024px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* タブレットは2列 */
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+        /* スマホは1列 */
+    }
+}
+
+.archive-card {
+    background: var(--glass-effect);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+}
+
+.archive-card:hover {
+    border-color: var(--warm-gold);
+    box-shadow: var(--shadow-glow);
+}
+
+.archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.archive-year {
+    font-size: 32px;
+    font-family: var(--font-mincho);
+    color: var(--warm-gold);
+}
+
+.archive-date {
+    font-size: 14px;
+    color: var(--text-gray);
+    letter-spacing: 0.1em;
+}
+
+.archive-description {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-light-gray);
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+/* ビデオラッパー */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    height: 0;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* スライドショー */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.slideshow-container h4 {
+    font-size: 16px;
+    color: var(--text-white);
+    margin-bottom: 15px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.slideshow-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+    /* 写真も16:9で統一 */
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.slideshow-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: var(--warm-gold);
+    box-shadow: 0 0 10px var(--warm-gold);
+    transform: scale(1.2);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .autumn-hero-title {
+        font-size: 48px;
+        padding-right: 20px;
+        margin-right: 20px;
+    }
+
+    .archive-card {
+        padding: 20px;
+    }
+
+    .archive-year {
+        font-size: 24px;
+    }
+}

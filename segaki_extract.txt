@@ -1,0 +1,136 @@
+--- EXTRACTED CONTENT ---
+[id='segaki' NOT FOUND]
+[FOUND text '施餓鬼']
+     <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>施餓鬼大般若転読</h3>
+                    </div>
+                    <div class="museum-content">
+                        <p>当山では毎年、特別法要として「大般若転読施餓鬼会」を厳修いたします。この法要は、先祖供養を行う「施餓鬼会」と厄除け・開運を祈願する「大般若転読会」を融合した稀有な仏事です。大般若経六百巻の転読による強力な加護のもと、ご先祖様への追善供養を行うことで、現世と来世の平安、そして一切の衆生の利益を願うこの機会に、皆様お誘い合わせのうえ、ご参拝くださいますようご案内申し上げます。
+                        </p>
+
+                        <div class="info-box">
+                            <h4>施行情報</h4>
+                            <div class="info-list">
+                                <div class="info-item-row">
+                                    <div class="info-label">厳修日</div>
+                                    <div class="info-value">8月15日</div>
+                                </div>
+
+                                <div class="info-item-row">
+                                    <div class="info-label">開始時間</div>
+                                    <div class="info-value">午後4時～</div>
+                                </div>
+
+                                <div class="info-item-row">
+                                    <div class="info-label">場所</div>
+                                    <div class="info-value">御本堂内</div>
+                                </div>
+
+                                <div class="info-item-row">
+                                    <div class="info-label">お知らせ</div>
+                                    <div class="info-value">ご参拝後は皆様で、かき氷や飲み物をお召し上がりください</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 動画ギャラリーセクション -->
+                <section id="video-gallery" class="museum-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>動画ギャラリー</h3>
+                    </div>
+                    <div class="museum-content">
+    
+
+--- YEAR ARCHIVES ---
+2025年 found at index 18789
+Context: 2025年の動画（最新・先頭） -->
+                                <div class="video-item">
+                                    <h4>施餓鬼大般若転読</h4>
+                                    <div class="video-date">2025年8月15
+---
+2025年 found at index 18980
+Context: 2025年8月15日</div>
+                                    <div class="video-description">
+                                        <p>令和7年8月15日、記録的な猛暑中でしたが、大勢の檀信徒を本堂にお向けして、施餓鬼供養大般若転読が厳修されました。檀信徒の皆様ありがとうございま
+---
+令和7年 found at index 19108
+Context: 令和7年8月15日、記録的な猛暑中でしたが、大勢の檀信徒を本堂にお向けして、施餓鬼供養大般若転読が厳修されました。檀信徒の皆様ありがとうございました。
+                                        </p>
+                                        <p>　　　　　　　　　　合掌</p>
+                   
+---
+2025年 found at index 19930
+Context: 2025年 施餓鬼大般若転読 写真</h4>
+                                        <div class="slideshow-wrapper">
+                                            <div class="slides">
+                                        
+---
+2024年 found at index 20929
+Context: 2024年8月15日</div>
+                                    <div class="video-description">
+                                        <p>令和6年8月15日、猛暑、台風の中、施餓鬼供養大般若転読が厳修されました。山門も新たに建立されました。檀信徒の皆様、ご参拝誠にありがとうございま
+---
+令和6年 found at index 21057
+Context: 令和6年8月15日、猛暑、台風の中、施餓鬼供養大般若転読が厳修されました。山門も新たに建立されました。檀信徒の皆様、ご参拝誠にありがとうございました。　
+                                        </p>
+                                        <p>　　　　　　　　　　合掌</p>
+                  
+---
+2024年 found at index 21880
+Context: 2024年 施餓鬼大般若転読 写真</h4>
+                                        <div class="slideshow-wrapper">
+                                            <div class="slides">
+                                        
+---
+2023年 found at index 22683
+Context: 2023年の動画 -->
+                                <div class="video-item">
+                                    <h4>施餓鬼大般若転読</h4>
+                                    <div class="video-date">2023年8月15日</div>
+---
+2023年 found at index 22867
+Context: 2023年8月15日</div>
+                                    <div class="video-description">
+                                        <p>令和5年8月15日、第9波のコロナ禍と猛暑、台風の中、4年ぶりの施餓鬼供養大般若転読が厳修されました。檀信徒の皆様、ご参拝誠にありがとうございま
+---
+令和5年 found at index 22995
+Context: 令和5年8月15日、第9波のコロナ禍と猛暑、台風の中、4年ぶりの施餓鬼供養大般若転読が厳修されました。檀信徒の皆様、ご参拝誠にありがとうございました。　
+                                        </p>
+                                        <p>　　　　　　　　　　合掌</p>
+                  
+---
+2023年 found at index 23817
+Context: 2023年 施餓鬼大般若転読 写真</h4>
+                                        <div class="slideshow-wrapper">
+                                            <div class="slides">
+                                        
+---
+2022年 found at index 24620
+Context: 2022年の動画 -->
+                                <div class="video-item">
+                                    <h4>施餓鬼大般若転読</h4>
+                                    <div class="video-date">2022年8月15日</div>
+---
+2022年 found at index 24804
+Context: 2022年8月15日</div>
+                                    <div class="video-description">
+                                        <p>令和4年8月15日、第4波のコロナ禍でしたが、制限された中で施餓鬼供養が厳修されました。大勢小野のご参拝をたまわりまして、ありがとうございました
+---
+令和4年 found at index 24932
+Context: 令和4年8月15日、第4波のコロナ禍でしたが、制限された中で施餓鬼供養が厳修されました。大勢小野のご参拝をたまわりまして、ありがとうございました。　
+                                        </p>
+                                        <p>　　　　　　　　　　合掌</p>
+                    
+---
+2022年 found at index 25752
+Context: 2022年 施餓鬼大般若転読 写真</h4>
+                                        <div class="slideshow-wrapper">
+                                            <div class="slides">
+                                        
+---

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* 蓮花院サイト共通CSS変数 */
+
+:root {
+    /* メインカラー */
+    --main-color: #8b4513;          /* 寺院の茶色（SaddleBrown） */
+    --accent-color: #d4af37;        /* 金色のアクセント（Gold） */
+    --secondary-color: #a05c2b;     /* セカンダリーブラウン */
+    
+    /* 背景色 */
+    --bg-color: #faf8f5;            /* クリーム系の背景 */
+    --bg-light: #f8f5f0;            /* より明るい背景 */
+    --bg-white: #ffffff;            /* 白背景 */
+    --bg-dark: #2a2a2a;             /* ダーク背景（フッターなど） */
+    
+    /* テキストカラー */
+    --text-color: #333;             /* メインテキスト */
+    --text-light: #666;             /* ライトテキスト */
+    --text-lighter: #999;           /* より明るいテキスト */
+    --text-white: #f0f0f0;          /* 白系テキスト */
+    
+    /* 透過色 */
+    --light-accent: rgba(139, 69, 19, 0.1);     /* メインカラー10% */
+    --overlay-dark: rgba(0, 0, 0, 0.5);         /* 黒50% */
+    --overlay-light: rgba(255, 255, 255, 0.9);  /* 白90% */
+    
+    /* シャドウ */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
+    /* フォント */
+    --font-mincho: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    --font-gothic: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    
+    /* ボーダー */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 15px;
+    
+    /* トランジション */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* スペーシング */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+}

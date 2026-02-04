@@ -6,24 +6,29 @@
     <title>お問い合わせ - 真言宗智山派 蓮花院</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="蓮花院へのお問い合わせについてご案内しています。">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/dark-theme.css?v=18">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+            /* 
             --main-color: #8b4513;
             --accent-color: #a05c2b;
             --bg-color: #f8f5f0;
             --text-color: #333;
             --light-accent: rgba(139, 69, 19, 0.1);
+            */
         }
 
         body {
             font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            /* background-color: var(--bg-color); */
+            /* color: var(--text-color); */
             line-height: 1.6;
         }
 
@@ -33,178 +38,14 @@
             padding: 0 20px;
         }
 
-        /* ヘッダー */
-        .header-wrapper {
-            background: url('images/slide1.jpg') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            padding: 20px 0 40px;
-        }
+        /* ヘッダー・メニューボタンのレガシースタイル削除 */
 
-        .header-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        header {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-
-        .temple-title {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            letter-spacing: 0.15em;
-            font-weight: normal;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .temple-subtitle {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            letter-spacing: 0.1em;
-            font-weight: normal;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        /* メニューボタン */
-        .menu-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-button:hover {
-            transform: translateY(-5px) rotate(5deg);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .menu-icon {
-            width: 30px;
-            height: 20px;
-            position: relative;
-        }
-
-        .menu-icon span {
-            display: block;
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background: var(--main-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-icon span:nth-child(1) {
-            top: 0;
-        }
-
-        .menu-icon span:nth-child(2) {
-            bottom: 0;
-        }
-
-        .menu-button:hover .menu-icon span:nth-child(1) {
-            width: 80%;
-            transform: translateY(2px);
-        }
-
-        .menu-button:hover .menu-icon span:nth-child(2) {
-            width: 60%;
-        }
-
-        /* レスポンシブ調整 */
-        @media (max-width: 768px) {
-            .temple-title {
-                font-size: 1.8em;
-            }
-
-            .temple-subtitle {
-                font-size: 0.9em;
-            }
-
-            .header-wrapper {
-                padding: 15px 0 30px;
-            }
-        }
-
-        /* メニューボタンのスタイル */
-        #menubar_hdr {
-            display: block !important;
-            position: fixed !important;
-            z-index: 9999 !important;
-            top: 10px !important;
-            right: 10px !important;
-            width: 80px !important;
-            height: 80px !important;
-            background: #fff !important;
-            border: 2px solid #8b4513 !important;
-            border-radius: 4px !important;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-        }
-
-        #menubar_hdr:hover {
-            background-color: rgba(139, 69, 19, 0.1) !important;
-            transform: translateY(-3px) !important;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        .menu-icon {
-            width: 50px !important;
-            height: 50px !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-        }
-
-        .menu-icon span {
-            display: block !important;
-            position: absolute !important;
-            width: 100% !important;
-            height: 4px !important;
-            background-color: #8b4513 !important;
-            border-radius: 4px !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .menu-icon span:nth-child(1) {
-            top: 15px !important;
-        }
-
-        .menu-icon span:nth-child(2) {
-            width: 70% !important;
-            bottom: 15px !important;
-        }
-
-        #menubar_hdr:hover .menu-icon span:nth-child(2) {
-            width: 100% !important;
-        }
+        /* お問い合わせページのスタイル */
 
         /* お問い合わせページのスタイル */
         h2 {
             text-align: center;
-            color: #8b4513;
+            color: var(--warm-gold);
             margin: 30px 0 15px;
             position: relative;
             padding-bottom: 8px;
@@ -217,7 +58,7 @@
             display: block;
             font-size: 0.5em;
             margin-top: 3px;
-            color: #666;
+            color: var(--text-gray);
         }
 
         .content-container {
@@ -240,14 +81,17 @@
             margin-bottom: 15px;
             line-height: 1.8;
             font-size: 1.1em;
+            color: white;
+            /* text-wrap: balance; 必要であれば残す */
         }
 
         .contact-form {
-            background-color: white;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 40px;
             margin: 0 auto 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             max-width: 1000px;
             width: 100%;
             box-sizing: border-box;
@@ -262,27 +106,28 @@
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
-            color: #555;
+            color: var(--warm-gold);
             font-size: 1.1em;
         }
 
         .form-control {
             width: 100%;
             padding: 15px;
-            border: 2px solid #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             font-size: 1.1em;
             font-family: inherit;
             transition: all 0.3s ease;
-            background-color: #f9f9f9;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
             box-sizing: border-box;
         }
 
         .form-control:focus {
-            border-color: #8b4513;
+            border-color: var(--warm-gold);
             outline: none;
-            box-shadow: 0 0 8px rgba(139, 69, 19, 0.2);
-            background-color: white;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         textarea.form-control {
@@ -294,21 +139,21 @@
         }
 
         .required {
-            color: #c00;
+            color: #ff6b6b;
             margin-left: 5px;
             font-size: 0.9em;
         }
 
         .privacy-notice {
-            background-color: #f8f5f0;
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 8px;
             margin: 30px 0;
-            border: 1px solid rgba(139, 69, 19, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .privacy-notice h4 {
-            color: #8b4513;
+            color: var(--warm-gold);
             margin-bottom: 10px;
             font-size: 1.1em;
         }
@@ -316,7 +161,7 @@
         .privacy-notice p {
             font-size: 0.95em;
             line-height: 1.6;
-            color: #666;
+            color: var(--text-gray);
         }
 
         .submit-button {
@@ -339,20 +184,39 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* ページタイトル - styles.cssのオーバーライド */
+        .page-title {
+            color: var(--warm-gold) !important;
+        }
+
+        /* 本文 - styles.cssのオーバーライド */
+        h3 {
+            color: var(--warm-gold) !important;
+        }
+
+        p {
+            color: var(--text-color);
+        }
+
+        .small-text {
+            color: var(--text-gray);
+        }
+
         /* アクセス情報 */
         .access-info {
-            background-color: white;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .access-info h3 {
-            color: #8b4513;
+            color: var(--warm-gold);
             margin-bottom: 20px;
             font-size: 1.5em;
-            border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
             padding-bottom: 10px;
         }
 
@@ -375,6 +239,7 @@
         .access-details p {
             margin-bottom: 15px;
             line-height: 1.8;
+            color: var(--text-color);
         }
 
         .access-map {
@@ -382,6 +247,7 @@
             height: 300px;
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (min-width: 768px) {
@@ -394,6 +260,8 @@
             width: 100%;
             height: 100%;
             border: none;
+            filter: grayscale(100%) invert(92%) contrast(83%);
+            /* 地図をダークモード風に */
         }
 
         .access-info dl {
@@ -403,13 +271,13 @@
 
         .access-info dt {
             font-weight: bold;
-            color: #8b4513;
+            color: var(--warm-gold);
             font-size: 1.1em;
             margin-top: 25px;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            border-left: 4px solid #8b4513;
+            border-left: 4px solid var(--warm-gold);
             padding-left: 10px;
         }
 
@@ -419,7 +287,7 @@
 
         .access-info dt i {
             margin-right: 10px;
-            color: #8b4513;
+            color: var(--warm-gold);
             width: 20px;
             text-align: center;
         }
@@ -429,6 +297,7 @@
             padding: 0 0 0 34px;
             line-height: 1.8;
             font-size: 1.05em;
+            color: var(--text-color);
         }
 
         .access-info ul {
@@ -441,6 +310,7 @@
             margin-bottom: 10px;
             display: flex;
             align-items: center;
+            color: var(--text-color);
         }
 
         .access-info ul li:last-child {
@@ -449,7 +319,7 @@
 
         .access-info ul li i {
             margin-right: 10px;
-            color: #666;
+            color: var(--text-gray);
             width: 20px;
             text-align: center;
         }
@@ -654,272 +524,30 @@
             color: white;
         }
 
-        .contact-form-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-
-        .form-header h3 {
-            color: #8b4513;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
-        }
-
-        .form-header p {
-            color: #666;
-            font-size: 1.1em;
-            margin-top: 15px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            flex: 1;
-        }
-
-        .form-group.full-width {
-            width: 100%;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-            font-size: 1.1em;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-        }
-
-        .form-control:focus {
-            border-color: #8b4513;
-            outline: none;
-            box-shadow: 0 0 8px rgba(139, 69, 19, 0.2);
-            background-color: white;
-        }
-
-        textarea.form-control {
-            min-height: 300px;
-            resize: vertical;
-            line-height: 1.6;
-            padding: 20px;
-        }
+        /* Legacy form styles removed for Dark Theme compatibility */
+        /* Removed legacy styles */
 
         .required {
-            color: #c00;
+            color: #ff6b6b;
             margin-left: 5px;
             font-size: 0.9em;
         }
 
-        .privacy-notice {
-            background-color: #f8f5f0;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 40px 0;
-            border: 1px solid rgba(139, 69, 19, 0.1);
-        }
 
-        .privacy-notice h4 {
-            color: #8b4513;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
 
-        .privacy-notice p {
-            font-size: 0.95em;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .form-submit {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .submit-button {
-            background-color: #8b4513;
-            color: white;
-            border: none;
-            padding: 15px 60px;
-            border-radius: 30px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 200px;
-        }
-
-        .submit-button:hover {
-            background-color: #a05c2b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .contact-form-wrapper {
-                padding: 30px 20px;
-                margin: 0 15px;
-            }
-
-            .form-row {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .form-control {
-                padding: 12px;
-                font-size: 1em;
-            }
-
-            textarea.form-control {
-                min-height: 250px;
-                padding: 15px;
-            }
-
-            .submit-button {
-                width: 100%;
-                padding: 12px 20px;
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-form-wrapper {
-                padding: 20px 15px;
-                margin: 0 10px;
-            }
-
-            .form-header h3 {
-                font-size: 1.5em;
-            }
-
-            .form-header p {
-                font-size: 1em;
-            }
-
-            .form-group label {
-                font-size: 1em;
-            }
-
-            textarea.form-control {
-                min-height: 200px;
-                padding: 12px;
-            }
-
-            .privacy-notice {
-                padding: 15px;
-            }
-        }
-
-        /* ページタイトル */
-        .page-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: #8b4513;
-            /* 茶色 */
-            position: relative;
-            font-weight: normal;
-            letter-spacing: 0.1em;
-            font-size: 2.2em;
-            /* 資料館ページに合わせる */
-            padding-top: 50px !important;
-            padding-bottom: 15px;
-            margin-top: 0;
-        }
-
-        /* コンテナとヘッダーのスタイル */
-        #container {
-            padding-top: 0;
-        }
-
-        header {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        #logo {
-            margin-bottom: 0;
-        }
-
-        #contents {
-            margin-top: 0;
-        }
-
-        main {
-            padding-top: 0;
-        }
-
-        /* 見出し */
-        h3 {
-            font-size: 1.3em;
-            /* 資料館ページに合わせる */
-            margin-bottom: 20px;
-            color: #8b4513;
-        }
-
-        /* 本文 */
-        p {
-            font-size: 1.1em;
-            /* 資料館ページに合わせる */
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* 小さいテキスト */
-        .small-text {
-            font-size: 0.9em;
-            /* 資料館ページに合わせる */
-            color: #666;
-        }
-
-        /* フォーム要素 */
-        input,
-        textarea {
-            font-size: 1.1em;
-            /* 資料館ページに合わせる */
-        }
-
-        /* ラベル */
-        label {
-            font-size: 1.1em;
-            /* 資料館ページに合わせる */
-        }
+        /* Removed legacy text/button styles that conflicted with Dark Theme */
 
         /* 確認画面のスタイル */
         .confirm-form h3 {
-            color: #003366;
+            color: var(--warm-gold);
             text-align: center;
             font-size: 1.8em;
             margin-bottom: 30px;
             padding: 15px 0;
-            background: #f0f5fa;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .confirm-form h3::after {
@@ -930,11 +558,11 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: #003366;
+            background: var(--warm-gold);
         }
 
         .confirm-content {
-            background: #f9f5f0;
+            background: rgba(0, 0, 0, 0.2);
             padding: 30px;
             border-radius: 8px;
             margin-bottom: 30px;
@@ -942,9 +570,10 @@
 
         .confirm-item {
             margin-bottom: 20px;
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .confirm-item:last-child {
@@ -953,19 +582,20 @@
 
         .confirm-item label {
             display: block;
-            color: #8b4513;
+            color: var(--warm-gold);
             font-weight: bold;
             margin-bottom: 10px;
-            border-left: 4px solid #8b4513;
+            border-left: 4px solid var(--warm-gold);
             padding-left: 10px;
         }
 
         .confirm-item p {
             margin: 0;
             padding: 10px;
-            background: #f8f8f8;
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 4px;
             line-height: 1.8;
+            color: var(--text-color);
         }
 
         .button-group {
@@ -976,7 +606,7 @@
         }
 
         .back-button {
-            background: #666;
+            background: #444;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -987,9 +617,9 @@
         }
 
         .back-button:hover {
-            background: #555;
+            background: #666;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* 確認画面のsubmit-buttonのスタイル上書き */
@@ -1012,7 +642,7 @@
         }
 
         .complete-message h3 {
-            color: #8b4513;
+            color: var(--warm-gold);
             font-size: 1.8em;
             margin-bottom: 20px;
         }
@@ -1020,13 +650,14 @@
         .complete-message p {
             margin-bottom: 15px;
             line-height: 1.8;
+            color: var(--text-color);
         }
 
         .back-to-top {
             display: inline-block;
             margin-top: 30px;
             padding: 12px 30px;
-            background: #8b4513;
+            background: var(--warm-gold);
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -1034,7 +665,7 @@
         }
 
         .back-to-top:hover {
-            background: #a05c2b;
+            background: var(--accent-gold);
             transform: translateY(-2px);
         }
 
@@ -1088,21 +719,87 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* Force white text for readability in Dark Theme */
+        .contact-intro p,
+        .form-group label,
+        .privacy-notice p,
+        .confirm-item label,
+        .confirm-item p,
+        .complete-message p,
+        .access-info dd,
+        .access-info ul li,
+        .small-text {
+            color: #ffffff !important;
+        }
+
+        /* Fix for select dropdown visibility */
+        select.form-control option {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Input fields styling */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff !important;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--warm-gold);
+            color: #ffffff !important;
+        }
+
+        /* Confirmation screen specifics */
+        .confirm-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .confirm-item p {
+            background-color: transparent;
+            border: none;
+            padding: 5px 0;
+            font-size: 1.1em;
+        }
+
+        /* Privacy notice links if any */
+        .privacy-notice a {
+            color: var(--warm-gold);
+            text-decoration: underline;
+        }
     </style>
 </head>
 
-<body>
-    <div class="header-wrapper">
-        <header>
-            <h1 class="temple-title">蓮花院</h1>
-            <p class="temple-subtitle">真言宗智山派</p>
-        </header>
-    </div>
+<body class="dark-theme">
+    <!-- 浮動ナビゲーション -->
+    <nav class="floating-nav" id="mainNav" style="background-color: rgba(10, 17, 40, 0.9);">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo">蓮花院</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="index.html#about" class="nav-link">寺院について</a></li>
+                <li><a href="index.html#branches" class="nav-link">分院</a></li>
+                <li><a href="index.html#events" class="nav-link">行事</a></li>
+                <li><a href="contact.html" class="nav-link active">お問い合わせ</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-    <div id="container">
-        <header>
-            <h1 id="logo"><a href="index.html"><img src="images/logo_tate.png" alt="蓮花院"></a></h1>
-        </header>
+    <div id="container" style="padding-top: 80px;">
 
         <div id="contents">
             <main>
@@ -1123,30 +820,39 @@
                             <!-- スパム対策（ハニーポット） -->
                             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                            <div class="form-group">
-                                <label for="name">お名前 <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" class="form-control" required
-                                    placeholder="例：山田 太郎">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">お名前 <span class="required">*</span></label>
+                                    <input type="text" id="name" name="name" class="form-control" required
+                                        placeholder="例：山田 太郎">
+                                </div>
+                                <div class="form-group">
+                                    <label for="furigana">フリガナ</label>
+                                    <input type="text" id="furigana" name="furigana" class="form-control"
+                                        placeholder="例：ヤマダ タロウ">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">メールアドレス <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" class="form-control" required
+                                        placeholder="例：example@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">電話番号</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control"
+                                        placeholder="例：03-1234-5678">
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">メールアドレス <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" class="form-control" required
-                                    placeholder="例：example@email.com">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">電話番号</label>
-                                <input type="tel" id="phone" name="phone" class="form-control"
-                                    placeholder="例：03-1234-5678">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="subject_select">件名 <span class="required">*</span></label>
+                                <label for="subject_select">お問い合わせ種別 <span class="required">*</span></label>
                                 <select id="subject_select" name="category" class="form-control" required>
                                     <option value="">選択してください</option>
-                                    <option value="法要について">法要について</option>
-                                    <option value="永代供養について">永代供養について</option>
+                                    <option value="法要のご依頼">法要のご依頼</option>
+                                    <option value="年間行事について">年間行事について</option>
+                                    <option value="御札・御守について">御札・御守について</option>
                                     <option value="参拝について">参拝について</option>
                                     <option value="その他">その他</option>
                                 </select>
@@ -1171,6 +877,10 @@
                                 <p id="confirm-name"></p>
                             </div>
                             <div class="confirm-item">
+                                <label>フリガナ</label>
+                                <p id="confirm-furigana"></p>
+                            </div>
+                            <div class="confirm-item">
                                 <label>メールアドレス</label>
                                 <p id="confirm-email"></p>
                             </div>
@@ -1179,7 +889,7 @@
                                 <p id="confirm-phone"></p>
                             </div>
                             <div class="confirm-item">
-                                <label>件名</label>
+                                <label>お問い合わせ種別</label>
                                 <p id="confirm-subject"></p>
                             </div>
                             <div class="confirm-item">
@@ -1206,30 +916,30 @@
                 </div>
             </main>
         </div>
-
-        <!-- フッターコンテナ -->
-        <div id="footer-container"></div>
-
-        <!--ページの上部へ戻るボタン-->
-        <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
-
-        <!--ハンバーガーメニュー-->
-        <a href="menu.html" class="menu-button">
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </a>
     </div>
 
-    <!--jQueryの読み込み-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- フッター -->
+    <footer class="dark-footer" style="margin-top: 60px;">
+        <div class="footer-divider"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>蓮花院</h3>
+                    <p>八劒山 真言宗智山派</p>
+                </div>
+                <div class="footer-info">
+                    <p>〒346-0000 埼玉県久喜市</p>
+                    <p>TEL: 0480-22-0000</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 蓮花院 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!--このテンプレート専用のスクリプト-->
-    <script src="js/main.js"></script>
-
-    <!-- フッター読み込み用スクリプト -->
-    <script src="js/footer-loader.js"></script>
+    <script src="js/dark-theme.js?v=18"></script>
 
     <script>
         // フォームの入力補助機能
@@ -1365,6 +1075,7 @@
 
             // 入力値を確認画面に表示
             document.getElementById('confirm-name').textContent = document.getElementById('name').value;
+            document.getElementById('confirm-furigana').textContent = document.getElementById('furigana').value;
             document.getElementById('confirm-email').textContent = document.getElementById('email').value;
             document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
             document.getElementById('confirm-subject').textContent = document.getElementById('subject_select').value;

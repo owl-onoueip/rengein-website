@@ -1,132 +1,239 @@
 @charset "UTF-8";
 
+/* フッター専用CSS - 蓮花院サイト（コンパクト版） */
+
 /* フッター全体 */
 footer {
-    background-color: #2a2a2a;
-    color: #f0f0f0;
-    padding: 40px 0 20px;
-    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", serif;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: var(--text-white, #f0f0f0);
+    padding: var(--spacing-lg, 40px) 0 var(--spacing-md, 20px);
+    font-family: var(--font-mincho, "游明朝", YuMincho, serif);
     position: relative;
-    border-top: 4px solid var(--main-color);
+    margin-top: var(--spacing-lg, 40px);
+}
+
+/* フッター上部の装飾ライン */
+.footer-top-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right,
+            var(--main-color, #8b4513) 0%,
+            var(--accent-color, #d4af37) 50%,
+            var(--main-color, #8b4513) 100%);
 }
 
 /* コンテナ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md, 20px);
 }
 
-/* フッターコンテンツレイアウト */
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 30px;
+/* フッターグリッドレイアウト（2カラム） */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg, 40px);
+    margin-bottom: var(--spacing-md, 20px);
 }
 
 @media (min-width: 768px) {
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .footer-grid {
+        grid-template-columns: 1.2fr 1fr;
+        gap: var(--spacing-xl, 60px);
     }
 }
 
-/* 左側：寺院情報 */
+/* フッターセクション共通スタイル */
+.footer-section {
+    padding: 0;
+}
+
+/* 寺院情報セクション */
 .footer-info {
-    flex: 1;
     text-align: center;
 }
 
 @media (min-width: 768px) {
     .footer-info {
         text-align: left;
-        margin-right: 40px;
     }
 }
 
 .footer-title {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-top: 0;
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--accent-color, #d4af37);
+    margin: 0 0 var(--spacing-xs, 5px);
     font-weight: normal;
     letter-spacing: 0.1em;
-    display: inline-block;
-    border-bottom: 1px solid var(--main-color);
-    padding-bottom: 8px;
-}
-
-.footer-address p {
-    margin: 0 0 5px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #ddd;
-}
-
-/* 右側：ナビゲーション */
-.footer-nav {
-    flex: 1;
-}
-
-.footer-links {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 10px 25px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    gap: var(--spacing-sm, 10px);
 }
 
 @media (min-width: 768px) {
-    .footer-links {
-        justify-content: flex-end;
+    .footer-title {
+        justify-content: flex-start;
     }
 }
 
-.footer-links a {
-    color: #f0f0f0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 0;
+.footer-title i {
+    color: var(--accent-color, #d4af37);
+    font-size: 1.1em;
 }
 
-.footer-links a:hover {
-    color: #fff;
+.temple-description {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin: 0 0 var(--spacing-md, 20px);
+    line-height: 1.6;
+}
+
+.footer-contact {
+    margin-top: var(--spacing-sm, 10px);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm, 10px);
+    margin: var(--spacing-xs, 5px) 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #ddd;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .contact-item {
+        justify-content: flex-start;
+    }
+}
+
+.contact-item i {
+    color: var(--accent-color, #d4af37);
+    font-size: 0.9em;
+    min-width: 16px;
+    margin-top: 3px;
+}
+
+/* サイトマップセクション */
+.footer-section-title {
+    font-size: 1.1rem;
+    color: var(--accent-color, #d4af37);
+    margin: 0 0 var(--spacing-md, 20px);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-section-title {
+        text-align: left;
+    }
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs, 5px);
+}
+
+@media (min-width: 768px) {
+    .footer-nav {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xs, 5px) var(--spacing-md, 20px);
+    }
+}
+
+.footer-nav a {
+    color: var(--text-white, #f0f0f0);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: var(--spacing-xs, 5px) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm, 10px);
+    transition: all var(--transition-normal, 0.3s ease);
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .footer-nav a {
+        justify-content: flex-start;
+    }
+}
+
+.footer-nav a:hover {
+    color: var(--accent-color, #d4af37);
     transform: translateX(5px);
 }
 
-.footer-links a i {
-    margin-right: 8px;
-    color: var(--main-color);
-    font-size: 0.9em;
-    transition: color 0.3s ease;
+.footer-nav a i {
+    color: var(--main-color, #8b4513);
+    font-size: 0.85em;
+    transition: color var(--transition-normal, 0.3s ease);
 }
 
-.footer-links a:hover i {
-    color: var(--accent-color);
+.footer-nav a:hover i {
+    color: var(--accent-color, #d4af37);
 }
 
-/* コピーライト */
+/* フッター下部 */
+.footer-bottom {
+    margin-top: var(--spacing-md, 20px);
+    padding-top: var(--spacing-md, 20px);
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+    margin-bottom: var(--spacing-md, 20px);
+}
+
 .footer-copyright {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.8rem;
-    color: #aaa;
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
 }
 
 .footer-copyright a {
-    color: #ccc;
+    color: var(--accent-color, #d4af37);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color var(--transition-normal, 0.3s ease);
 }
 
 .footer-copyright a:hover {
-    color: #fff;
+    color: white;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 767px) {
+    footer {
+        padding: var(--spacing-md, 20px) 0 var(--spacing-md, 20px);
+    }
+
+    .footer-grid {
+        gap: var(--spacing-lg, 40px);
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* アクセシビリティ向上 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }

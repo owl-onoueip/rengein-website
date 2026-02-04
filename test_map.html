@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Map Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Map Connection Test</h1>
+    <p>Loading Leaflet...</p>
+    <div id="map"></div>
+    <div id="log"></div>
+
+    <script>
+        const log = document.getElementById('log');
+        function print(msg) {
+            log.innerHTML += '<p>' + msg + '</p>';
+            console.log(msg);
+        }
+
+        window.addEventListener('load', function () {
+            if (typeof L === 'undefined') {
+                print('❌ Error: Leaflet library NOT loaded.');
+                alert('Leaflet library failed to load.');
+                return;
+            }
+            print('✅ Leaflet library loaded.');
+
+            try {
+                const map = L.map('map').setView([36.0621, 139.6673], 15);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+                L.marker([36.0621, 139.6673]).addTo(map).bindPopup('Taishido').openPopup();
+                print('✅ Map initialized successfully.');
+            } catch (e) {
+                print('❌ Map initialization failed: ' + e.message);
+            }
+        });
+    </script>
+</body>
+
+</html>
