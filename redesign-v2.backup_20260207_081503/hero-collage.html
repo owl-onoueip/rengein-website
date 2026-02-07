@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>蓮花院 | 【提案3】回廊・多層レイアウト</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dark-theme.css?v=3">
+    <style>
+        /* デモ用の簡易リセット */
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--deep-navy);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+
+    <!-- ナビゲーション（共通） -->
+    <nav class="floating-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">蓮花院</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">ホーム</a></li>
+                <li><a href="#" class="nav-link">寺院について</a></li>
+                <li><a href="#" class="nav-link">行事</a></li>
+                <li><a href="#" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 回廊・多層レイアウト ヒーローセクション -->
+    <section class="hero-collage-section" id="heroCollage">
+
+        <div class="collage-container">
+            <!-- 装飾フレーム（一番奥） -->
+            <div class="collage-frame"></div>
+
+            <!-- 画像レイヤー 1: メイン（本堂） -->
+            <!-- 視差効果: data-speed属性で制御（JSで処理） -->
+            <div class="collage-item collage-main" data-speed="2">
+                <img src="../images/TOPG001.png" alt="蓮花院 本堂">
+            </div>
+
+            <!-- 画像レイヤー 2: 風景（庭園・自然） -->
+            <div class="collage-item collage-sub-1" data-speed="4">
+                <img src="../images/garden1.jpg" alt="庭園">
+            </div>
+
+            <!-- 画像レイヤー 3: 詳細（仏像・瓦など） -->
+            <div class="collage-item collage-sub-2" data-speed="6">
+                <!-- 適切な画像がない場合は別の画像を使用 -->
+                <img src="../images/mituzo.jpg" alt="密蔵院">
+            </div>
+
+            <!-- コンテンツレイヤー -->
+            <div class="collage-content">
+                <div class="collage-title-box" data-speed="1">
+                    <span class="collage-title-sub">Rengein Temple</span>
+                    <h1 class="collage-title-main">心安らぐ、<br>祈りの回廊</h1>
+                    <p style="color: #b8bcc4; margin-top: 10px;">埼玉県久喜市 真言宗智山派</p>
+                </div>
+            </div>
+
+            <!-- 光の粒子エフェクト（再利用） -->
+            <div class="light-particles">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 以降は通常のコンテンツ（デモのため省略） -->
+    <section class="intro-section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="text-align: center;">
+                    <span class="title-japanese">時を重ねる、美しさ</span>
+                    <span class="title-english">Timeless Beauty</span>
+                </h2>
+                <p style="text-align: center; margin-top: 40px; color: #b8bcc4;">
+                    多層レイアウトは、寺院の持つ「歴史」「自然」「建築」という<br>
+                    複数の魅力を一度に表現するデザイン手法です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // パララックス効果の簡易スクリプト
+        document.addEventListener('mousemove', function (e) {
+            const container = document.querySelector('.collage-container');
+            const items = document.querySelectorAll('[data-speed]');
+
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            items.forEach(item => {
+                const speed = item.getAttribute('data-speed');
+                const xMove = x * speed;
+                const yMove = y * speed;
+
+                // transformを適用（既存のCSS transitionと競合しないように注意）
+                // 画像自体の拡大hover効果を残すため、親divを動かす
+                item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
+
+                // collage-mainなどはCSSで translateX(-50%) がついているため、それを維持する必要がある
+                if (item.classList.contains('collage-main')) {
+                    item.style.transform = `translateX(calc(-50% + ${xMove}px)) translateY(${yMove}px)`;
+                } else if (item.classList.contains('collage-content')) {
+                    // contentは translate(-50%, -50%)
+                    // item.style.transform = `translate(calc(-50% + ${xMove}px), calc(-50% + ${yMove}px))`; 
+                    // コンテンツは動かしすぎないほうが読みやすいのであえて動かさないか、微調整
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+/* ==========================================
+   施餓鬼写真ギャラリー - アコーディオン式
+   ========================================== */
+
+/* アコーディオンボタン */
+.photo-toggle-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid var(--warm-gold);
+    border-radius: 6px;
+    color: var(--warm-gold);
+    font-family: var(--font-mincho);
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.photo-toggle-btn:hover {
+    background: rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.photo-toggle-btn i {
+    margin-right: 8px;
+}
+
+/* 写真グリッドコンテナ */
+.photo-grid-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.photo-grid-container.active {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+/* 写真グリッド */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.photo-thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.photo-thumbnail:hover {
+    transform: scale(1.05);
+    border-color: var(--warm-gold);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.photo-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-thumbnail:hover img {
+    transform: scale(1.1);
+}
+
+/* Lightbox */
+.photo-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 100000;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--warm-gold);
+    border-color: var(--warm-gold);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: var(--warm-gold);
+    border-color: var(--warm-gold);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* タブレット対応 */
+@media (max-width: 992px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .photo-toggle-btn {
+        max-width: 250px;
+        padding: 10px 16px;
+        font-size: 0.9em;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+}
+
+/* 小型スマホ対応 */
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-toggle-btn {
+        font-size: 0.85em;
+        padding: 8px 14px;
+    }
+}

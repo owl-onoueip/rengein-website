@@ -47,6 +47,14 @@
     - [x] HTML: ボタンとモーダルの追加 (`index.html`)
     - [x] CSS: フローティングボタンとモーダルのスタイル (`dark-theme.css`)
     - [x] JS: 開閉ロジックの実装 (`dark-theme.js`)
+  - [x] **動的読み込み化 (Dynamic Loading via Google Sheets)**
+    - [x] `js/news-loader.js` の作成 (JSON fetch & render)
+    - [x] `index.html` のお知らせ部分を動的コンテナに置き換え
+    - [x] `index.html` のお知らせ部分を動的コンテナに置き換え
+    - [x] 動作確認 (Connected to User GAS)
+  - [x] **管理アプリの導入 (AppSheet)**
+    - [x] AppSheetの自動生成
+    - [x] 住職様のスマホへのインストール手配 (手順書作成済み)
 - [ ] **SEO・メタデータ**
   - シングルページ化に伴うメタタグの最適化。
 

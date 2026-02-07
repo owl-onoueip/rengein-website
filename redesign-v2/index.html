@@ -16,8 +16,12 @@
     <meta property="og:image" content="https://rengeinn.com/images/TOPG001.webp">
     <meta property="og:site_name" content="蓮花院">
 
+    <!-- OpenStreetMap Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/dark-theme.css?v=5">
+    <link rel="stylesheet" href="/redesign-v2/css/dark-theme.css?v=25">
+    <link rel="stylesheet" href="/redesign-v2/css/photo-accordion.css">
     <style>
         body {
             margin: 0;
@@ -29,6 +33,12 @@
 </head>
 
 <body class="dark-theme">
+    <!-- お知らせフローティングボタン (確実に表示されるようbody上部に配置) -->
+    <div class="news-floating-btn" id="newsFloatingBtn"
+        onclick="if(typeof openNewsModal === 'function') { openNewsModal(event); } else { alert('JS not loaded'); }">
+        <i class="fas fa-bell"></i>
+        <span class="notification-dot"></span>
+    </div>
     <!-- ローディング画面 -->
     <div class="loader-wrapper">
         <div class="loader">
@@ -263,7 +273,7 @@
                     </div>
                     <div class="event-card fade-in-up" style="animation-delay: 0.4s;">
                         <div class="event-season">夏</div>
-                        <h3 class="event-title">お盆法要</h3>
+                        <h3 class="event-title">お盆・施餓鬼会法要</h3>
                         <p class="event-date">8月15日</p>
                         <p class="event-description">ご先祖様やご縁ある方々のご供養を行います。大般若経の転読と施餓鬼法要を厳修します。</p>
                         <button id="segaki-btn" class="branch-button" onclick="openSegakiModal(event)"
@@ -302,15 +312,18 @@
             </div>
             <div class="contact-content fade-in">
                 <p class="contact-intro">法要、祈願、その他のご相談など、お気軽にお問い合わせください。</p>
-                <div class="contact-buttons">
+                <div class="contact-info-display">
                     <a href="./contact.html" class="contact-button primary">
                         <i class="fas fa-envelope"></i>
                         お問い合わせフォーム
                     </a>
-                    <a href="tel:0480-22-0000" class="contact-button secondary">
-                        <i class="fas fa-phone"></i>
-                        電話でお問い合わせ
-                    </a>
+                    <div class="contact-phone-box">
+                        <p class="phone-label">お電話でのお問合せ</p>
+                        <a href="tel:0480-21-2636" class="phone-number">0480-21-2636</a>
+                        <p class="reception-hours">受付時間 9:00〜17:00 <a href="/redesign-v2/admin/"
+                                style="color: rgba(212, 175, 55, 0.4); text-decoration: none; font-size: 0.85em; margin-left: 10px;"
+                                title="管理">🔧</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -498,7 +511,7 @@
             <div class="modal-body">
                 <div class="greeting-container">
                     <div class="greeting-image">
-                        <img src="images/jyuwushoku.jpg" alt="蓮花院二十世住職 白石純栄">
+                        <img src="/redesign-v2/images/jyuwushoku.jpg" alt="蓮花院二十世住職 白石純栄">
                         <p class="caption">蓮花院二十世住職<br>白石純栄</p>
                     </div>
                     <div class="greeting-text-vertical">
@@ -506,7 +519,10 @@
                         </p>
                         <p>　この間、当山総代をはじめ、近隣のご住職方、そして地域の皆様からいただいた温かいご支援に心より感謝申し上げます。皆様のお力添えにより、微力ながら蓮花院の住職としての務めを果たしてまいりました。
                         </p>
-                        <p>　2006年4月、十九世加藤正照僧正の体調不良に伴い、法類本寺である川口安行の密蔵院より当山に赴任いたしました。2009年12月に住職を拝命し、以来15年余りが経ちました。</p>
+                        <p>　<span class="tcy">2006</span>年<span
+                                class="tcy">4</span>月、十九世加藤正照僧正の体調不良に伴い、法類本寺である川口安行の密蔵院より当山に赴任いたしました。<span
+                                class="tcy">2009</span>年<span class="tcy">12</span>月に住職を拝命し、以来<span
+                                class="tcy">15</span>年余りが経ちました。</p>
                         <p>　どなたも気軽に立ち寄れる開かれた寺院として、皆様の心の支えとなれるよう精進してまいります。お近くにお越しの際は、どうぞお気軽にお立ち寄りください。皆様のご来山を心よりお待ちしております。
                         </p>
                     </div>
@@ -551,20 +567,7 @@
                             <p>四季折々の花や木々が楽しめる庭園は、心を落ち着かせる瞑想の場としても親しまれています。</p>
                         </div>
                     </div>
-                    <div class="precinct-card">
-                        <img src="images/rokujizo.jpg" alt="六地蔵" onerror="this.src='images/temple2.jpg'">
-                        <div class="precinct-info">
-                            <h3>六地蔵</h3>
-                            <p>境内の入り口に安置された六体の地蔵菩薩様が、参拝者の安全を見守ります。</p>
-                        </div>
-                    </div>
-                    <div class="precinct-card">
-                        <img src="images/matsu.jpg" alt="大松" onerror="this.src='images/temple3.jpg'">
-                        <div class="precinct-info">
-                            <h3>大松</h3>
-                            <p>樹齢数百年の大きな松の木が、境内に荘厳な雰囲気を醸し出しています。</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -578,8 +581,13 @@
                     <p>太子山大聖院聖徳寺は、埼玉県久喜市下早見に位置しています（下早見336）。本尊として安置されているのは荘厳な阿弥陀如来坐像です。</p>
                     <p>阿弥陀如来は、衆生を救済するという慈悲の心を表しています。また、脇侍として地蔵菩薩立像が祀られており、子供や旅人の守護神として多くの人々の信仰を集めていました。</p>
                     <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/taishi_new.webp" alt="太子堂"
+                        <img src="/redesign-v2/images/taishi_new.webp" alt="太子堂"
                             style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                    </div>
+                    <!-- 地図表示エリア -->
+                    <div id="taishido-map"
+                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                     </div>
                 </div>
             </div>
@@ -594,8 +602,13 @@
                     <p>埼玉県久喜市下早見1783に位置する三入寮は、静かな佇まいの中に深い信仰心が息づく場所です。本尊として荘厳な阿弥陀如来坐像が安置され、西方極楽浄土への導き手として参拝者を迎えています。</p>
                     <p>脇侍として祀られる地蔵菩薩立像は、子供や旅人の守り神として親しまれ、地域の人々の信仰を集めてきました。これらの仏像は、三入寮の精神的象徴として大切に守られています。</p>
                     <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/sanny_new.webp" alt="三入寮"
+                        <img src="/redesign-v2/images/sanny_new.webp" alt="三入寮"
                             style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                    </div>
+                    <!-- 地図表示エリア -->
+                    <div id="sannyuryo-map"
+                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                     </div>
                 </div>
             </div>
@@ -612,8 +625,13 @@
                     </p>
                     <p>現在も久喜市の仏教文化を担う重要な存在として、静かな佇まいを保ちながら人々の祈りの場となっています。</p>
                     <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/mituzo_new.webp" alt="密蔵院"
+                        <img src="/redesign-v2/images/mituzo_new.webp" alt="密蔵院"
                             style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                    </div>
+                    <!-- 地図表示エリア -->
+                    <div id="mitsuzoin-map"
+                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                     </div>
                 </div>
             </div>
@@ -631,17 +649,99 @@
                         <p>八劒山 真言宗智山派</p>
                     </div>
                     <div class="footer-info">
-                        <p>〒346-0000 埼玉県久喜市</p>
-                        <p>TEL: 0480-22-0000</p>
+                        <p>〒346-0022 埼玉県久喜市下早見７２５</p>
+                        <p>TEL: 0480-21-2636</p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 蓮花院 All Rights Reserved.</p>
+                    <p>&copy; 2025 蓮花院. All rights reserved. <a href="/redesign-v2/admin/"
+                            style="color: rgba(212, 175, 55, 0.3); text-decoration: none; font-size: 0.8em; margin-left: 10px;"
+                            title="管理">🔧</a></p>
                 </div>
             </div>
         </footer>
 
-        <script src="./js/dark-theme.js?v=6"></script>
+
+        <!-- お知らせモーダル -->
+        <div id="news-modal" class="modal news-modal">
+            <div class="modal-content news-modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="news-header">
+                    <h3><i class="fas fa-bell"></i> お知らせ</h3>
+                    <p>蓮花院からの最新情報</p>
+                </div>
+                <!-- News List Container for Dynamic Loading -->
+                <div id="news-list-container" class="news-list">
+                    <!-- Fallback content / Loading state -->
+                    <p class="loading-news">お知らせを読み込み中...</p>
+                </div>
+                <div class="news-footer">
+                    <a href="#" class="news-archive-link">過去のお知らせ一覧 <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <script src="/redesign-v2/js/news-loader.js?v=22"></script>
+        <script src="/redesign-v2/js/dark-theme.js?v=23"></script>
+        <script src="/redesign-v2/js/photo-accordion.js"></script>
+        <script>
+            setTimeout(() => {
+                console.log('Final check: openNewsModal type is', typeof openNewsModal);
+            }, 1000);
+
+            // 地図初期化
+            let maps = {
+                taishido: { id: 'taishido-map', lat: 36.0621, lng: 139.6673, label: '太子堂', instance: null },
+                sannyuryo: { id: 'sannyuryo-map', lat: 36.0650, lng: 139.6710, label: '三入寮', instance: null },
+                mitsuzoin: { id: 'mitsuzoin-map', lat: 36.0635, lng: 139.6690, label: '密蔵院', instance: null }
+            };
+
+            function initLeafletMap(key) {
+                console.log('initLeafletMap called for:', key);
+                let m = maps[key];
+                if (!m) {
+                    console.error('Map config not found for key:', key);
+                    return;
+                }
+
+                if (m.instance) {
+                    console.log('Map already initialized, invalidating size...');
+                    setTimeout(() => m.instance.invalidateSize(), 100);
+                    return;
+                }
+
+                const container = document.getElementById(m.id);
+                if (!container) {
+                    console.error('Map container not found:', m.id);
+                    return;
+                }
+
+                console.log('Initializing new Leaflet map...');
+                container.innerHTML = '';
+
+                try {
+                    if (typeof L === 'undefined') {
+                        console.error('Leaflet library (L) is not loaded!');
+                        container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図ライブラリの読み込みに失敗しました</p>';
+                        return;
+                    }
+
+                    m.instance = L.map(m.id).setView([m.lat, m.lng], 16);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(m.instance);
+
+                    L.marker([m.lat, m.lng]).addTo(m.instance).bindPopup(m.label).openPopup();
+                    console.log('Map initialization successful for:', key);
+
+                    // 表示直後のズレ防止
+                    setTimeout(() => m.instance.invalidateSize(), 500);
+                } catch (e) {
+                    console.error('Leaflet execution error:', e);
+                    container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図の表示中にエラーが発生しました</p>';
+                }
+            }
+        </script>
         <script>
             // パララックス効果
             document.addEventListener('mousemove', function (e) {

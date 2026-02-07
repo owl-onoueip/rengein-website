@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>蓮花院 | 【提案4】シネマティック回廊（融合版）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dark-theme.css?v=4">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #050814;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+
+    <!-- ナビゲーション -->
+    <nav class="floating-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">蓮花院</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">ホーム</a></li>
+                <li><a href="#" class="nav-link">物語</a></li>
+                <li><a href="#" class="nav-link">拝観</a></li>
+                <li><a href="#" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- シネマティック回廊セクション -->
+    <section class="hero-fusion-section" id="heroFusion">
+
+        <!-- 背景パターン（和柄など） -->
+        <div class="fusion-pattern"></div>
+
+        <!-- 背景の霧（CSSアニメーション） -->
+        <div class="fog-container">
+            <div class="fog-img"></div>
+            <div class="fog-img fog-img-2"></div>
+        </div>
+
+        <!-- 融合版コンテナ -->
+        <div class="fusion-container">
+
+            <!-- 画像レイヤー 2 (奥の風景 - 背景的に馴染ませる) -->
+            <div class="fusion-item fusion-sub-2" data-speed="1">
+                <div class="fusion-image-inner">
+                    <img src="../images/mituzo.jpg" alt="奥の院">
+                </div>
+            </div>
+
+            <!-- 画像レイヤー 1 (メイン・本堂) -->
+            <div class="fusion-item fusion-main" data-speed="2">
+                <div class="fusion-image-inner">
+                    <!-- 夜から朝への移ろいスライドショー -->
+                    <div class="fusion-slideshow">
+                        <img src="../images/topg003_1.webp" alt="蓮花院 夜の静寂">
+                        <img src="../images/topg003_2.webp" alt="蓮花院 夜明けの光">
+                        <img src="../images/topg003_3.webp" alt="蓮花院 朝日">
+                        <img src="../images/TOPG001.webp" alt="蓮花院 本堂">
+                    </div>
+                    <!-- 灯火 -->
+                    <div class="fusion-glow-point" style="bottom: 25%; left: 20%;"></div>
+                    <div class="fusion-glow-point" style="bottom: 25%; right: 20%;"></div>
+                </div>
+            </div>
+
+
+
+            <!-- 光の粒子 -->
+            <div class="light-particles">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- コンテンツ -->
+            <div class="fusion-content">
+                <div class="fusion-content-text">
+                    <h1 class="fusion-title">
+                        心、<br>安らぐ
+                    </h1>
+                    <p class="fusion-subtitle">
+                        四季の彩りと、静謐な祈り。<br>
+                        ご先祖様と心を通わす、<br>
+                        大切なひとときを。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- スクロールインジケーター -->
+        <div class="hero-scroll-indicator" style="bottom: 30px;">
+            <span style="font-size: 10px; opacity: 0.6;">SCROLL</span>
+            <div style="height: 40px; width: 1px; background: rgba(255,255,255,0.3); margin: 0 auto;"></div>
+        </div>
+
+    </section>
+
+    <section class="intro-section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="text-align: center;">
+                    <span class="title-japanese">融合の美学</span>
+                    <span class="title-english">Fusion Aesthetic</span>
+                </h2>
+                <p style="text-align: center; margin-top: 40px; color: #b8bcc4;">
+                    多層レイアウトの奥行きと、シネマティックな空気感を融合しました。<br>
+                    縦書きのタイポグラフィと漂う霧が、和の幽玄さを強調します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // パララックス効果
+        document.addEventListener('mousemove', function (e) {
+            const items = document.querySelectorAll('[data-speed]');
+
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            items.forEach(item => {
+                const speed = item.getAttribute('data-speed');
+                const xMove = x * speed;
+                const yMove = y * speed;
+
+                // transformの上書きに注意しつつ適用
+                // fusion-mainなどは top/left 等で配置しているので translate は 0 からスタートでOK
+                // ただしCSSで translateX(-50%) している場合は考慮が必要
+
+                if (item.classList.contains('fusion-main')) {
+                    // スマホでセンター配置のときだけ translateX(-50%) があるが、PCは right配置なので不要
+                    // 現在のCSSを見る限りPCでは right: 15% なので translateXは不要
+                    // スマホ対応を含めるなら getComputedStyle でチェックすべきだが簡易的に処理
+                    if (window.innerWidth <= 768) {
+                        item.style.transform = `translateX(calc(-50% + ${xMove}px)) translateY(${yMove}px)`;
+                    } else {
+                        item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
+                    }
+                } else {
+                    item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
