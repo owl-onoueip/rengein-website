@@ -7,7 +7,7 @@ const SEGAKI_PHOTO_DATA = {
     2025: {
         count: 5,
         prefix: 'shakai',
-        format: 'shakai2025_{num}.webp'  // shakai2025_01.webp
+        format: 'shakai2025_{num}.jpg'  // shakai2025_01.jpg
     },
     2024: {
         count: 8,
