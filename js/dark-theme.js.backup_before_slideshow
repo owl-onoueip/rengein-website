@@ -111,19 +111,7 @@ window.openGreetingModal = function (e) {
 
 window.openPrecinctsModal = function (e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
-    const modal = document.getElementById('precincts-modal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-};
-
-window.closePrecinctsModal = function () {
-    const modal = document.getElementById('precincts-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    openModal('precincts-modal');
 };
 
 window.openHistoryModal = function (e) {
@@ -133,62 +121,26 @@ window.openHistoryModal = function (e) {
 
 window.openTaishidoModal = function (e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
-    const modal = document.getElementById('taishido-modal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-            if (typeof initLeafletMap === 'function') initLeafletMap('taishido');
-        }, 500);
-    }
-};
-
-window.closeTaishidoModal = function () {
-    const modal = document.getElementById('taishido-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    openModal('taishido-modal');
+    setTimeout(() => {
+        if (typeof initLeafletMap === 'function') initLeafletMap('taishido');
+    }, 300);
 };
 
 window.openSannyuryoModal = function (e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
-    const modal = document.getElementById('sannyuryo-modal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-            if (typeof initLeafletMap === 'function') initLeafletMap('sannyuryo');
-        }, 500);
-    }
-};
-
-window.closeSannyuryoModal = function () {
-    const modal = document.getElementById('sannyuryo-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    openModal('sannyuryo-modal');
+    setTimeout(() => {
+        if (typeof initLeafletMap === 'function') initLeafletMap('sannyuryo');
+    }, 300);
 };
 
 window.openMitsuzoinModal = function (e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
-    const modal = document.getElementById('mitsuzoin-modal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-            if (typeof initLeafletMap === 'function') initLeafletMap('mitsuzoin');
-        }, 500);
-    }
-};
-
-window.closeMitsuzoinModal = function () {
-    const modal = document.getElementById('mitsuzoin-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    openModal('mitsuzoin-modal');
+    setTimeout(() => {
+        if (typeof initLeafletMap === 'function') initLeafletMap('mitsuzoin');
+    }, 300);
 };
 
 document.addEventListener("DOMContentLoaded", function () {

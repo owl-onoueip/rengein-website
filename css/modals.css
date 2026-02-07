@@ -1,0 +1,153 @@
+/* ==========================================
+   境内案内モーダル（シンプル版）
+   ========================================== */
+
+.simple-precincts-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+.simple-precincts-modal.active {
+    display: flex;
+}
+
+.precincts-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    cursor: pointer;
+}
+
+.precincts-modal-container {
+    position: relative;
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 50px 40px;
+    overflow-y: auto;
+    z-index: 100000;
+    transform: none !important;
+    margin: 0 auto;
+}
+
+.precincts-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.precincts-modal-close:hover {
+    color: #d4af37;
+}
+
+.precincts-modal-title {
+    font-size: 32px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+}
+
+.precincts-modal-body {
+    color: #cccccc;
+}
+
+.precincts-modal-body h3 {
+    font-size: 24px;
+    color: #d4af37;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    letter-spacing: 0.08em;
+}
+
+.precincts-modal-body p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.precincts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.precinct-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.precinct-item:hover {
+    transform: translateY(-5px);
+}
+
+.precinct-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.precinct-description {
+    padding: 20px;
+}
+
+.precinct-description h4 {
+    color: #d4af37;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.precinct-description p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .precincts-modal-container {
+        padding: 40px 20px;
+    }
+
+    .precincts-modal-title {
+        font-size: 24px;
+    }
+
+    .precinct-image {
+        height: 200px;
+    }
+
+    .precincts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
