@@ -109,16 +109,15 @@ function createPhotoAccordion(year, photoData) {
     for (let i = 1; i <= photoData.count; i++) {
         const num = String(i).padStart(2, '0');
         const filename = photoData.format.replace('{num}', num);
-        // 画像URL
         const imgUrl = `/images/shakaki${year}/${filename}`;
 
-        // 特定の画像（2025年の1〜3枚目）を回転させるクラス
-        let imgClass = '';
-        if (year === 2025 && i <= 3) {
-            imgClass = 'rotate-180';
-        }
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'photo-thumbnail';
+        thumbnail.dataset.imgUrl = imgUrl;
+        thumbnail.dataset.index = i - 1;
+        thumbnail.dataset.year = year;
 
-        thumbnail.innerHTML = `<img src="${imgUrl}" class="${imgClass}" alt="${year}年施餓鬼法要 写真${i}" onerror="this.parentElement.style.display='none'">`;
+        thumbnail.innerHTML = `<img src="${imgUrl}" alt="${year}年施餓鬼法要 写真${i}" onerror="this.parentElement.style.display='none'">`;
 
         // クリックでLightbox開く
         thumbnail.addEventListener('click', function () {
@@ -204,13 +203,6 @@ function openLightbox(year, index) {
 
     img.src = imgUrl;
     img.alt = `${year}年施餓鬼法要 写真${index + 1}`;
-
-    // 2025年の1〜3枚目は回転させる
-    if (year === 2025 && index < 3) {
-        img.classList.add('rotate-180');
-    } else {
-        img.classList.remove('rotate-180');
-    }
 
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
