@@ -89,20 +89,71 @@ function showAdminScreen() {
 // お知らせ読み込み
 // ==========================================
 
+const CACHE_KEY = 'rengein_news_cache';
+const CACHE_EXPIRY = 24 * 60 * 60 * 1000; // 24時間（念のため）
+
 async function loadNews() {
     const newsList = document.getElementById('news-list');
-    newsList.innerHTML = '<p class="loading"><i class="fas fa-spinner fa-spin"></i> 読み込み中...</p>';
 
+    // 1. キャッシュがあれば先に表示（Stale-While-Revalidate）
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    if (cachedData) {
+        try {
+            const parsed = JSON.parse(cachedData);
+            console.log('📦 キャッシュからデータを読み込みました');
+            newsData = parsed.data;
+            renderNewsList();
+
+            // バックグラウンド更新中であることを示す（オプション）
+            // newsList.insertAdjacentHTML('afterbegin', '<p class="updating-msg"><i class="fas fa-sync fa-spin"></i> 最新情報を確認中...</p>');
+        } catch (e) {
+            console.error('キャッシュ読み込みエラー', e);
+        }
+    } else {
+        newsList.innerHTML = '<p class="loading"><i class="fas fa-spinner fa-spin"></i> 読み込み中...</p>';
+    }
+
+    // 2. 最新データを非同期で取得
     try {
         const response = await fetch(GAS_API_URL);
         const data = await response.json();
 
-        newsData = data;
-        renderNewsList();
+        // データに変更があれば更新
+        // （簡易的な比較：JSON文字列にして比較）
+        if (JSON.stringify(data) !== JSON.stringify(newsData)) {
+            console.log('✨ 新しいデータが見つかりました');
+            newsData = data;
+            renderNewsList();
+
+            // 新しいデータをキャッシュに保存
+            saveCache(data);
+
+            if (cachedData) {
+                // ユーザーに通知（邪魔にならない程度に）
+                const toast = document.createElement('div');
+                toast.className = 'toast-notification';
+                toast.textContent = '最新情報に更新されました';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            }
+        } else {
+            console.log('✅ データは最新です');
+        }
+
     } catch (error) {
         console.error('お知らせ読み込みエラー:', error);
-        newsList.innerHTML = '<p class="loading" style="color: #ff6b6b;">読み込みに失敗しました</p>';
+        if (!newsData.length) {
+            newsList.innerHTML = '<p class="loading" style="color: #ff6b6b;">読み込みに失敗しました</p>';
+        }
     }
+}
+
+function saveCache(data) {
+    const cacheObj = {
+        timestamp: new Date().getTime(),
+        data: data
+    };
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheObj));
 }
 
 function renderNewsList() {
@@ -268,7 +319,8 @@ async function saveToGAS(action, index, data) {
         throw new Error('GASへの送信に失敗しました');
     }
 
-    // 保存後、最新データを再読み込み
+    // 保存後、最新データを再読み込み（GASからの返却を待つより、ローカルを更新した方が速いが、整合性のためloadNewsを呼ぶ）
+    // ただし、loadNews内でもキャッシュ更新が行われる
     await loadNews();
 }
 

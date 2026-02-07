@@ -29,6 +29,22 @@
             background: #050814;
             overflow-x: hidden;
         }
+
+        /* モーダル表示の強制（!important付き） */
+        .modal.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .news-modal.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 
@@ -681,8 +697,8 @@
             </div>
         </div>
 
-        <script src="/redesign-v2/js/news-loader.js?v=22"></script>
-        <script src="/redesign-v2/js/dark-theme.js?v=23"></script>
+        <script src="/redesign-v2/js/news-loader.js?v=26"></script>
+        <script src="/redesign-v2/js/dark-theme.js?v=28"></script>
         <script src="/redesign-v2/js/photo-accordion.js"></script>
         <script>
             setTimeout(() => {

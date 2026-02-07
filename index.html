@@ -30,6 +30,20 @@
             background: #050814;
             overflow-x: hidden;
         }
+
+        /* モーダル表示の強制（!important付き） */
+        .modal.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
+        .news-modal.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 
@@ -762,8 +776,8 @@
             </div>
         </div>
 
-        <script src="./js/news-loader.js?v=22"></script>
-        <script src="./js/dark-theme.js?v=23"></script>
+        <script src="./js/news-loader.js?v=24"></script>
+        <script src="./js/dark-theme.js?v=25"></script>
         <script src="./js/branch-accordion.js"></script>
         <script src="./js/photo-accordion.js"></script>
         <script>

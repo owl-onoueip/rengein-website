@@ -78,6 +78,15 @@ window.openModal = function (modalId) {
         modal.style.display = 'flex';
         modal.style.opacity = '1';
         modal.style.pointerEvents = 'auto';
+        modal.style.visibility = 'visible';
+        modal.style.zIndex = '99999';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.right = '0';
+        modal.style.bottom = '0';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
 
         // 背景スクロールを完全に無効化
         const scrollY = window.scrollY;
