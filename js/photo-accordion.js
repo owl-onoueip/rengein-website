@@ -118,13 +118,7 @@ function createPhotoAccordion(year, photoData) {
         thumbnail.dataset.index = i - 1;
         thumbnail.dataset.year = year;
 
-        // 特定の画像（2025年の1〜3枚目）を回転させる（インラインスタイルで強制）
-        let imgStyle = '';
-        if (year === 2025 && i <= 3) {
-            imgStyle = 'transform: rotate(180deg);';
-        }
-
-        thumbnail.innerHTML = `<img src="${imgUrl}" style="${imgStyle}" alt="${year}年施餓鬼法要 写真${i}" onerror="this.parentElement.style.display='none'">`;
+        thumbnail.innerHTML = `<img src="${imgUrl}" alt="${year}年施餓鬼法要 写真${i}" onerror="this.parentElement.style.display='none'">`;
 
         // クリックでLightbox開く
         thumbnail.addEventListener('click', function () {
@@ -215,15 +209,6 @@ function openLightbox(year, index) {
     if (year === 2025 && index < 3) {
         img.classList.add('rotate-180');
     } else {
-        img.classList.remove('rotate-180');
-    }
-
-    // 2025年の1〜3枚目（index 0, 1, 2）は回転させる
-    if (year === 2025 && index < 3) {
-        img.style.transform = 'rotate(180deg)';
-    } else {
-        img.style.transform = 'none';
-        // 念のためクラスも削除
         img.classList.remove('rotate-180');
     }
 
