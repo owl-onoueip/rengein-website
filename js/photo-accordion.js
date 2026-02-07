@@ -205,6 +205,13 @@ function openLightbox(year, index) {
     img.src = imgUrl;
     img.alt = `${year}年施餓鬼法要 写真${index + 1}`;
 
+    // 2025年の1〜3枚目は回転させる
+    if (year === 2025 && index < 3) {
+        img.classList.add('rotate-180');
+    } else {
+        img.classList.remove('rotate-180');
+    }
+
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
