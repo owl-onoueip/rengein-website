@@ -1,0 +1,127 @@
+/* ==========================================
+   フッタースタイル（家紋対応版）
+   ========================================== */
+
+.dark-footer {
+    background: var(--midnight-blue);
+    padding: 60px 0 30px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--warm-gold), transparent);
+    margin-bottom: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo {
+    flex: 1;
+}
+
+.footer-temple-name {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-kamon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    object-position: center 45%;
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid var(--warm-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.footer-name-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-sect {
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+    margin: 0;
+    font-family: var(--font-gothic);
+    letter-spacing: -0.01em;
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    color: var(--warm-gold);
+    margin: 0;
+    font-weight: bold;
+    font-family: var(--font-mincho);
+    letter-spacing: -0.02em;
+}
+
+.footer-mountain {
+    font-size: 1.4rem;
+    margin-right: 0.25em;
+}
+
+.footer-temple {
+    font-size: 1.8rem;
+}
+
+.footer-info {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-info p {
+    margin: 8px 0;
+    color: var(--text-light-gray);
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-bottom p {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-temple-name {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-kamon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}

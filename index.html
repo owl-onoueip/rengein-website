@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="./css/branch-grid.css">
     <link rel="stylesheet" href="./css/branch-accordion.css">
     <link rel="stylesheet" href="./css/photo-accordion.css">
+    <link rel="stylesheet" href="./css/footer-kamon.css">
+    <link rel="stylesheet" href="./css/header-kamon.css">
+    <link rel="stylesheet" href="./css/header-kamon.css">
+    <link rel="stylesheet" href="./css/loader-kamon.css">
     <style>
         body {
             margin: 0;
@@ -67,10 +71,14 @@
     <!-- ローディング画面 -->
     <div class="loader-wrapper">
         <div class="loader">
-            <div class="lantern-icon">
-                <i class="fas fa-fire"></i>
+            <img src="./images/ka.gif" alt="家紋" class="loader-kamon">
+            <div class="loader-text">
+                <p class="loader-sect">真言宗智山派</p>
+                <p class="loader-title">
+                    <span class="loader-mountain">八劒山</span>
+                    <span class="loader-temple">蓮花院</span>
+                </p>
             </div>
-            <p class="loading-text">蓮花院</p>
         </div>
     </div>
 
@@ -82,7 +90,16 @@
     <!-- 浮動ナビゲーション -->
     <nav class="floating-nav" id="mainNav">
         <div class="nav-container">
-            <div class="nav-logo">蓮花院</div>
+            <div class="nav-logo">
+                <img src="./images/ka.gif" alt="家紋" class="nav-kamon">
+                <div class="nav-name">
+                    <span class="nav-sect">真言宗智山派</span>
+                    <span class="nav-title">
+                        <span class="nav-mountain">八劒山</span>
+                        <span class="nav-temple">蓮花院</span>
+                    </span>
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">ホーム</a></li>
                 <li><a href="#about" class="nav-link">寺院について</a></li>
@@ -724,29 +741,36 @@
     </div>
 
     <!-- ============================================
-         フッター（一時的にコメントアウト中）
-         ============================================
-        <footer class="dark-footer">
-            <div class="footer-divider"></div>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <h3>蓮花院</h3>
-                        <p>八劒山 真言宗智山派</p>
-                    </div>
-                    <div class="footer-info">
-                        <p>〒346-0022 埼玉県久喜市下早見７２５</p>
-                        <p>TEL: 0480-21-2636</p>
+         フッター
+         ============================================ -->
+    <footer class="dark-footer">
+        <div class="footer-divider"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-temple-name">
+                        <img src="./images/ka.gif" alt="家紋" class="footer-kamon">
+                        <div class="footer-name-text">
+                            <p class="footer-sect">真言宗智山派</p>
+                            <h3 class="footer-title">
+                                <span class="footer-mountain">八劒山</span>
+                                <span class="footer-temple">蓮花院</span>
+                            </h3>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 蓮花院. All rights reserved. <a href="./admin/"
-                            style="color: rgba(212, 175, 55, 0.3); text-decoration: none; font-size: 0.8em; margin-left: 10px;"
-                            title="管理">🔧</a></p>
+                <div class="footer-info">
+                    <p>〒346-0022 埼玉県久喜市下早見７２５</p>
+                    <p>TEL: 0480-21-2636</p>
                 </div>
             </div>
-        </footer>
-        -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 蓮花院. All rights reserved. <a href="./admin/"
+                        style="color: rgba(212, 175, 55, 0.3); text-decoration: none; font-size: 0.8em; margin-left: 10px;"
+                        title="管理">🔧</a></p>
+            </div>
+        </div>
+    </footer>
 
 
     <!-- お知らせモーダル -->
@@ -771,11 +795,16 @@
     <script src="./js/news-loader.js?v=30"></script>
     <script src="./js/dark-theme.js?v=31"></script>
     <script>
+        // スクロール位置を保存する変数
+        let savedScrollPosition = 0;
+
         // 強制上書きスクリプト（JSファイル読み込み失敗時の保険）
         window.openModal = function (modalId) {
-            // alert("openModal called: " + modalId); // デバッグ用（確認後削除）
             const modal = document.getElementById(modalId);
             if (modal) {
+                // 現在のスクロール位置を保存
+                savedScrollPosition = window.scrollY || window.pageYOffset;
+
                 modal.classList.add('active');
 
                 // スタイルを強制適用（!important）
@@ -794,10 +823,30 @@
                 modal.style.alignItems = 'center';
                 modal.style.justifyContent = 'center';
 
-                // 背景固定
+                // 背景を固定（スクロール位置を維持）
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${savedScrollPosition}px`;
+                document.body.style.width = '100%';
                 document.body.style.overflow = 'hidden';
             } else {
                 alert("エラー: モーダルが見つかりません ID=" + modalId);
+            }
+        };
+
+        // モーダルを閉じる関数
+        window.closeModal = function (modal) {
+            if (modal) {
+                modal.classList.remove('active');
+                modal.style.display = 'none';
+
+                // 背景の固定を解除
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                document.body.style.overflow = '';
+
+                // 保存したスクロール位置に戻す
+                window.scrollTo(0, savedScrollPosition);
             }
         };
 

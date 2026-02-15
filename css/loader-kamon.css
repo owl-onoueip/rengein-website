@@ -1,0 +1,71 @@
+/* ==========================================
+   ローディング画面のロゴスタイル
+   ========================================== */
+
+.loader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loader-kamon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    object-position: center 28%;
+    background: white;
+    border-radius: 50%;
+    padding: 1px;
+    border: 2px solid var(--warm-gold);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    animation: pulsate 2s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.loader-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.loader-sect {
+    font-size: 0.85rem;
+    color: var(--text-light-gray);
+    font-family: var(--font-gothic);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.loader-title {
+    font-size: 2rem;
+    color: var(--warm-gold);
+    font-weight: bold;
+    font-family: var(--font-mincho);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.loader-mountain {
+    font-size: 1.5rem;
+    margin-right: 0.25em;
+}
+
+.loader-temple {
+    font-size: 2rem;
+}

@@ -78,6 +78,15 @@ window.openModal = function (modalId) {
         modal.style.display = 'flex';
         modal.style.opacity = '1';
         modal.style.pointerEvents = 'auto';
+        modal.style.visibility = 'visible';
+        modal.style.zIndex = '99999';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.right = '0';
+        modal.style.bottom = '0';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
 
         // 背景スクロールを完全に無効化
         const scrollY = window.scrollY;
@@ -91,6 +100,12 @@ window.openModal = function (modalId) {
     } else {
         console.error(`Modal not found: ${modalId}`);
     }
+};
+
+window.openNewsModal = function (e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    console.log("Opening News Modal...");
+    openModal('news-modal');
 };
 
 window.openNewsModal = function (e) {
@@ -196,35 +211,27 @@ document.addEventListener("DOMContentLoaded", function () {
     closeModals.forEach(btn => {
         btn.addEventListener("click", function () {
             const modal = btn.closest('.modal');
-            if (modal) {
+            if (modal && typeof window.closeModal === 'function') {
+                window.closeModal(modal);
+            } else if (modal) {
+                // フォールバック（closeModal関数がない場合）
                 modal.classList.remove("active");
                 modal.style.display = 'none';
-
-                // スクロール位置を復元
-                const scrollY = document.body.style.top;
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.width = '';
-                document.body.style.overflow = 'auto';
-                document.documentElement.style.overflow = 'auto';
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                document.body.style.overflow = '';
             }
         });
     });
 
     window.addEventListener("click", function (e) {
         if (e.target.classList.contains('modal')) {
-            e.target.classList.remove("active");
-            e.target.style.display = 'none';
-
-            // スクロール位置を復元
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflow = 'auto';
-            document.documentElement.style.overflow = 'auto';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            if (typeof window.closeModal === 'function') {
+                window.closeModal(e.target);
+            } else {
+                // フォールバック
+                e.target.classList.remove("active");
+                e.target.style.display = 'none';
+                document.body.style.overflow = '';
+            }
         }
     });
 });

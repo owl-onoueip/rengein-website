@@ -1,0 +1,188 @@
+﻿9867d4a - Add news modal functionality and fix display issues (Sat Feb 7 19:11:36 2026)
+M	admin/admin.css
+M	admin/admin.js
+M	images/shakaki2023/img04.webp
+M	images/shakaki2023/img05.webp
+M	images/shakaki2023/img06.webp
+M	images/shakaki2025/shakai2025_01.webp
+M	images/shakaki2025/shakai2025_02.webp
+M	images/shakaki2025/shakai2025_03.webp
+M	index.html
+M	redesign-v2/index.html
+M	redesign-v2/js/dark-theme.js
+
+8e7af87 - Revert to WebP format (user will replace physical files) (Sat Feb 7 16:32:06 2026)
+M	js/photo-accordion.js
+
+4f13905 - Remove rotation logic (JPGs are already upright) (Sat Feb 7 16:28:45 2026)
+M	js/photo-accordion.js
+
+ddfc555 - Switch Segaki 2025 images to JPG format (Sat Feb 7 16:24:47 2026)
+M	js/photo-accordion.js
+
+b6d978c - Hardcode rotation for Segaki 2025 images 1-3 using inline styles (Sat Feb 7 16:21:47 2026)
+M	js/photo-accordion.js
+
+bc5eb66 - Fix CSS corruption and ensure rotation class exists (Sat Feb 7 16:19:38 2026)
+M	css/photo-accordion.css
+
+38ebcf4 - Rotate first 3 images of Segaki 2025 (thumbnails and lightbox) (Sat Feb 7 16:15:28 2026)
+M	css/photo-accordion.css
+M	js/photo-accordion.js
+
+6ac3192 - Revert changes to restore photo gallery visibility (Sat Feb 7 16:12:33 2026)
+M	css/photo-accordion.css
+M	index.html
+M	js/photo-accordion.js
+
+50e5f17 - Emergency fix: Overwrite corrupted photo-accordion.css (Sat Feb 7 16:10:33 2026)
+M	css/photo-accordion.css
+
+611739f - Force rotate Segaki 2025 images 1-3 in Lightbox and update cache versions (Sat Feb 7 16:06:21 2026)
+M	index.html
+M	js/photo-accordion.js
+
+0cc660c - Fix upside down images in Segaki photo gallery (2025 first 3 images) (Sat Feb 7 16:01:56 2026)
+M	css/photo-accordion.css
+M	js/photo-accordion.js
+
+64e0535 - Hide large branch detail images on mobile devices (max-width: 768px) (Sat Feb 7 15:55:33 2026)
+A	css/branch-accordion.css
+
+d759383 - Refactor branch temples section: replaced modals with accordion design for better reliability and UX (Sat Feb 7 15:19:39 2026)
+D	about.html
+A	admin/admin.css
+A	admin/admin.js
+A	admin/index.html
+M	contact.html
+A	css/branch-modals.css
+M	css/dark-theme.css
+A	css/dark-theme.css.backup_before_slideshow
+A	css/footer-styles.css
+A	css/modals.css
+A	css/photo-accordion.css
+A	css/precincts-modal.css
+D	events.html
+A	images/a20210326_113844.jpg
+A	images/a20210326_113904.jpg
+A	images/a20210326_114031.jpg
+A	images/ka.gif
+M	index.html
+A	js/branch-accordion.js
+M	js/dark-theme.js
+A	js/dark-theme.js.backup_before_slideshow
+A	js/photo-accordion.js
+D	menu.html
+D	museum.html
+A	segaki.html
+A	test-modal.js
+
+94dd4b6 - Add news admin panel with password authentication and CRUD features (Sat Feb 7 10:33:13 2026)
+M	.agent/task.md
+A	APPSHEET_SETUP.md
+A	GAS_NEWS_SCRIPT_FULL.js
+A	GAS_SETUP.md
+A	NEWS_MANUAL.md
+A	SEGAKI_PHOTO_MANUAL.md
+M	about.html
+M	contact.html
+A	convert-segaki-webp.js
+M	events.html
+M	footer.html
+A	images/shakaki2022/img01.webp
+A	images/shakaki2022/img02.webp
+A	images/shakaki2022/img03.webp
+A	images/shakaki2022/img04.webp
+A	images/shakaki2022/img05.webp
+A	images/shakaki2022/img06.webp
+A	images/shakaki2023/img01.webp
+A	images/shakaki2023/img02.webp
+A	images/shakaki2023/img03.webp
+A	images/shakaki2023/img04.webp
+A	images/shakaki2023/img05.webp
+A	images/shakaki2023/img06.webp
+A	images/shakaki2024/img01.webp
+A	images/shakaki2024/img02.webp
+A	images/shakaki2024/img03.webp
+A	images/shakaki2024/img04.webp
+A	images/shakaki2024/img05.webp
+A	images/shakaki2024/img06.webp
+A	images/shakaki2024/img07.webp
+A	images/shakaki2024/img08.webp
+A	images/shakaki2024/shakaki2024_01.webp
+A	images/shakaki2024/shakaki2024_02.webp
+A	images/shakaki2024/shakaki2024_03.webp
+A	images/shakaki2024/shakaki2024_04.webp
+A	images/shakaki2024/shakaki2024_05.webp
+A	images/shakaki2024/shakaki2024_06.webp
+A	images/shakaki2024/shakaki2024_07.webp
+A	images/shakaki2024/shakaki2024_08.webp
+A	images/shakaki2025/shakai2025_01.webp
+A	images/shakaki2025/shakai2025_02.webp
+A	images/shakaki2025/shakai2025_03.webp
+A	images/shakaki2025/shakai2025_04.webp
+A	images/shakaki2025/shakai2025_05.webp
+M	index.html
+A	js/news-loader.js
+A	ka.gif
+M	museum.html
+A	redesign-v2.backup_20260207_081503/contact.html
+A	redesign-v2.backup_20260207_081503/css/autumn.css
+A	redesign-v2.backup_20260207_081503/css/dark-theme.backup_before_welcome_refine.css
+A	redesign-v2.backup_20260207_081503/css/dark-theme.css
+A	redesign-v2.backup_20260207_081503/css/footer-styles.css
+A	redesign-v2.backup_20260207_081503/hero-collage.html
+A	redesign-v2.backup_20260207_081503/hero-fusion.html
+A	redesign-v2.backup_20260207_081503/image-only.html
+A	redesign-v2.backup_20260207_081503/images/TOPG001.webp
+A	redesign-v2.backup_20260207_081503/images/garden_new.png
+A	redesign-v2.backup_20260207_081503/images/gate1.jpg
+R100	redesign-v2/images/hero-dusk.png	redesign-v2.backup_20260207_081503/images/hero-dusk.png
+A	redesign-v2.backup_20260207_081503/images/hondo_new.jpg
+A	redesign-v2.backup_20260207_081503/images/intro_slide1.png
+A	redesign-v2.backup_20260207_081503/images/intro_slide1.webp
+A	redesign-v2.backup_20260207_081503/images/intro_slide2.jpg
+A	redesign-v2.backup_20260207_081503/images/intro_slide2.webp
+A	redesign-v2.backup_20260207_081503/images/jyuwushoku.jpg
+A	redesign-v2.backup_20260207_081503/images/ka.gif
+A	redesign-v2.backup_20260207_081503/images/kannon_new.png
+A	redesign-v2.backup_20260207_081503/images/mituzo.jpg
+A	redesign-v2.backup_20260207_081503/images/mituzo_new.png
+A	redesign-v2.backup_20260207_081503/images/mituzo_new.webp
+A	redesign-v2.backup_20260207_081503/images/sannny.jpg
+A	redesign-v2.backup_20260207_081503/images/sanny_new.png
+A	redesign-v2.backup_20260207_081503/images/sanny_new.webp
+A	redesign-v2.backup_20260207_081503/images/taishi.jpg
+A	redesign-v2.backup_20260207_081503/images/taishi_new.png
+A	redesign-v2.backup_20260207_081503/images/taishi_new.webp
+A	redesign-v2.backup_20260207_081503/images/temple1.jpg
+A	redesign-v2.backup_20260207_081503/images/topg003_1.webp
+A	redesign-v2.backup_20260207_081503/images/topg003_2.webp
+A	redesign-v2.backup_20260207_081503/images/topg003_3.webp
+A	redesign-v2.backup_20260207_081503/index.backup_before_welcome_refine.html
+A	redesign-v2.backup_20260207_081503/index.html
+A	redesign-v2.backup_20260207_081503/index_backup.html
+A	redesign-v2.backup_20260207_081503/index_simple.html
+A	redesign-v2.backup_20260207_081503/js/dark-theme.js
+A	redesign-v2.backup_20260207_081503/js/news-loader.js
+A	redesign-v2.backup_20260207_081503/segaki.html
+A	redesign-v2/admin/admin.css
+A	redesign-v2/admin/admin.js
+A	redesign-v2/admin/index.html
+M	redesign-v2/contact.html
+M	redesign-v2/css/dark-theme.css
+A	redesign-v2/css/dark-theme.css.backup_before_slideshow
+A	redesign-v2/css/footer-styles.css
+A	redesign-v2/css/photo-accordion.css
+A	redesign-v2/images/gate1.jpg
+A	redesign-v2/images/jyuwushoku.jpg
+A	redesign-v2/images/ka.gif
+M	redesign-v2/index.backup_before_welcome_refine.html
+M	redesign-v2/index.html
+M	redesign-v2/index_backup.html
+M	redesign-v2/index_simple.html
+M	redesign-v2/js/dark-theme.js
+A	redesign-v2/js/dark-theme.js.backup_before_slideshow
+A	redesign-v2/js/news-loader.js
+A	redesign-v2/js/photo-accordion.js
+M	redesign-v2/segaki.html
