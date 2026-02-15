@@ -21,6 +21,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/dark-theme.css?v=32">
+    <link rel="stylesheet" href="./css/branch-grid.css">
     <link rel="stylesheet" href="./css/branch-accordion.css">
     <link rel="stylesheet" href="./css/photo-accordion.css">
     <style>
@@ -32,11 +33,20 @@
         }
 
         /* モーダル表示の強制（!important付き） */
+        /* モーダル表示の強制（!important付き） */
         .modal.active {
             display: flex !important;
             opacity: 1 !important;
             visibility: visible !important;
             pointer-events: auto !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .news-modal.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         .news-modal.active {
@@ -217,73 +227,54 @@
                 </h2>
             </div>
 
-            <!-- 太子堂 -->
-            <div class="branch-accordion-item">
-                <div class="branch-accordion-header" onclick="toggleBranch('taishido')">
-                    <div class="branch-header-content">
-                        <img src="./images/taishi_new.webp" alt="太子堂" class="branch-header-image">
-                        <div class="branch-header-text">
-                            <h3>太子堂</h3>
-                            <p>太子山大聖院聖徳寺</p>
-                        </div>
+            <div class="branches-grid">
+                <!-- 太子堂 -->
+                <article class="branch-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="branch-image-wrapper">
+                        <img src="./images/taishi_new.webp" alt="太子堂" class="branch-image">
                     </div>
-                    <i class="fas fa-chevron-down branch-toggle-icon" id="taishido-icon"></i>
-                </div>
-                <div class="branch-accordion-body" id="taishido-body">
-                    <div class="branch-detail-content">
-                        <img src="./images/taishi_new.webp" alt="太子堂" class="branch-detail-image">
-                        <p class="branch-address">〒346-0022 埼玉県久喜市下早見336</p>
-                        <p>太子山大聖院聖徳寺は、埼玉県久喜市下早見に位置しています。本尊として安置されているのは荘厳な阿弥陀如来坐像です。</p>
-                        <p>地域の信仰の場として、長い歴史を持つ寺院です。静かな境内は、訪れる方々に安らぎを与えています。</p>
-                        <div id="taishido-map" class="branch-map"></div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">太子堂</h3>
+                        <p class="branch-description">
+                            太子山大聖院聖徳寺は、埼玉県久喜市下早見に位置しています（下早見336）。本尊として安置されているのは荘厳な阿弥陀如来坐像です。
+                        </p>
+                        <button class="branch-button" onclick="openTaishidoModal(event)">
+                            詳しく見る <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- 三入寮 -->
-            <div class="branch-accordion-item">
-                <div class="branch-accordion-header" onclick="toggleBranch('sannyuryo')">
-                    <div class="branch-header-content">
-                        <img src="./images/sanny_new.webp" alt="三入寮" class="branch-header-image">
-                        <div class="branch-header-text">
-                            <h3>三入寮</h3>
-                            <p>三入寮</p>
-                        </div>
+                <!-- 三入寮 -->
+                <article class="branch-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="branch-image-wrapper">
+                        <img src="./images/sanny_new.webp" alt="三入寮" class="branch-image">
                     </div>
-                    <i class="fas fa-chevron-down branch-toggle-icon" id="sannyuryo-icon"></i>
-                </div>
-                <div class="branch-accordion-body" id="sannyuryo-body">
-                    <div class="branch-detail-content">
-                        <img src="./images/sanny_new.webp" alt="三入寮" class="branch-detail-image">
-                        <p class="branch-address">〒346-0022 埼玉県久喜市下早見1783</p>
-                        <p>埼玉県久喜市下早見1783に位置する三入寮は、静かな佇まいの中に深い信仰心が息づく場所です。本尊として荘厳な阿弥陀如来坐像が安置されています。</p>
-                        <p>地域の方々の心の拠り所として、日々の祈りを受け止めています。</p>
-                        <div id="sannyuryo-map" class="branch-map"></div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">三入寮</h3>
+                        <p class="branch-description">
+                            埼玉県久喜市下早見1783に位置する三入寮は、静かな佇まいの中に深い信仰心が息づく場所です。本尊として荘厳な阿弥陀如来坐像が安置されています。
+                        </p>
+                        <button class="branch-button" onclick="openSannyuryoModal(event)">
+                            詳しく見る <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- 密蔵院 -->
-            <div class="branch-accordion-item">
-                <div class="branch-accordion-header" onclick="toggleBranch('mitsuzoin')">
-                    <div class="branch-header-content">
-                        <img src="./images/mituzo_new.webp" alt="密蔵院" class="branch-header-image">
-                        <div class="branch-header-text">
-                            <h3>密蔵院</h3>
-                            <p>補陀落山観音寺密蔵院</p>
-                        </div>
+                <!-- 密蔵院 -->
+                <article class="branch-card fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="branch-image-wrapper">
+                        <img src="./images/mituzo_new.webp" alt="密蔵院" class="branch-image">
                     </div>
-                    <i class="fas fa-chevron-down branch-toggle-icon" id="mitsuzoin-icon"></i>
-                </div>
-                <div class="branch-accordion-body" id="mitsuzoin-body">
-                    <div class="branch-detail-content">
-                        <img src="./images/mituzo_new.webp" alt="密蔵院" class="branch-detail-image">
-                        <p class="branch-address">〒346-0022 埼玉県久喜市下早見85</p>
-                        <p>埼玉県久喜市下早見85に位置する補陀落山観音寺密蔵院は、観音菩薩の浄土にちなんだ山号を持つ歴史ある寺院です。</p>
-                        <p>観音様の慈悲に包まれた静かな境内で、多くの方々が心の平安を見出しています。</p>
-                        <div id="mitsuzoin-map" class="branch-map"></div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">密蔵院</h3>
+                        <p class="branch-description">
+                            埼玉県久喜市下早見85に位置する補陀落山観音寺密蔵院は、観音菩薩の浄土にちなんだ山号を持つ歴史ある寺院です。
+                        </p>
+                        <button class="branch-button" onclick="openMitsuzoinModal(event)">
+                            詳しく見る <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -609,129 +600,130 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 太子堂のモーダルウィンドウ -->
-        <div id="taishido-modal" class="modal">
-            <div class="modal-content modal-wide">
-                <span class="close-modal">&times;</span>
-                <h2 class="modal-title">太子堂の詳細情報</h2>
-                <div class="modal-body">
-                    <p>太子山大聖院聖徳寺は、埼玉県久喜市下早見に位置しています（下早見336）。本尊として安置されているのは荘厳な阿弥陀如来坐像です。</p>
-                    <p>阿弥陀如来は、衆生を救済するという慈悲の心を表しています。また、脇侍として地蔵菩薩立像が祀られており、子供や旅人の守護神として多くの人々の信仰を集めていました。</p>
-                    <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/taishi_new.webp" alt="太子堂"
-                            style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
-                    </div>
-                    <!-- 地図表示エリア -->
-                    <div id="taishido-map"
-                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
-                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
-                    </div>
+    <!-- 太子堂のモーダルウィンドウ -->
+    <div id="taishido-modal" class="modal">
+        <div class="modal-content modal-wide">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">太子堂の詳細情報</h2>
+            <div class="modal-body">
+                <p>太子山大聖院聖徳寺は、埼玉県久喜市下早見に位置しています（下早見336）。本尊として安置されているのは荘厳な阿弥陀如来坐像です。</p>
+                <p>阿弥陀如来は、衆生を救済するという慈悲の心を表しています。また、脇侍として地蔵菩薩立像が祀られており、子供や旅人の守護神として多くの人々の信仰を集めていました。</p>
+                <div class="modal-image-container" style="margin-top:20px; text-align:center;">
+                    <img src="./images/taishi_new.webp" alt="太子堂"
+                        style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                </div>
+                <!-- 地図表示エリア -->
+                <div id="taishido-map"
+                    style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                    <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 三入寮のモーダルウィンドウ -->
-        <div id="sannyuryo-modal" class="modal">
-            <div class="modal-content modal-wide">
-                <span class="close-modal">&times;</span>
-                <h2 class="modal-title">三入寮の詳細情報</h2>
-                <div class="modal-body">
-                    <p>埼玉県久喜市下早見1783に位置する三入寮は、静かな佇まいの中に深い信仰心が息づく場所です。本尊として荘厳な阿弥陀如来坐像が安置され、西方極楽浄土への導き手として参拝者を迎えています。</p>
-                    <p>脇侍として祀られる地蔵菩薩立像は、子供や旅人の守り神として親しまれ、地域の人々の信仰を集めてきました。これらの仏像は、三入寮の精神的象徴として大切に守られています。</p>
-                    <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/sanny_new.webp" alt="三入寮"
-                            style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
-                    </div>
-                    <!-- 地図表示エリア -->
-                    <div id="sannyuryo-map"
-                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
-                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
-                    </div>
+    <!-- 三入寮のモーダルウィンドウ -->
+    <div id="sannyuryo-modal" class="modal">
+        <div class="modal-content modal-wide">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">三入寮の詳細情報</h2>
+            <div class="modal-body">
+                <p>埼玉県久喜市下早見1783に位置する三入寮は、静かな佇まいの中に深い信仰心が息づく場所です。本尊として荘厳な阿弥陀如来坐像が安置され、西方極楽浄土への導き手として参拝者を迎えています。</p>
+                <p>脇侍として祀られる地蔵菩薩立像は、子供や旅人の守り神として親しまれ、地域の人々の信仰を集めてきました。これらの仏像は、三入寮の精神的象徴として大切に守られています。</p>
+                <div class="modal-image-container" style="margin-top:20px; text-align:center;">
+                    <img src="./images/sanny_new.webp" alt="三入寮"
+                        style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                </div>
+                <!-- 地図表示エリア -->
+                <div id="sannyuryo-map"
+                    style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                    <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 密蔵院のモーダルウィンドウ -->
-        <div id="mitsuzoin-modal" class="modal">
-            <div class="modal-content modal-wide">
-                <span class="close-modal">&times;</span>
-                <h2 class="modal-title">密蔵院の詳細情報</h2>
-                <div class="modal-body">
-                    <p>埼玉県久喜市下早見85に位置する補陀落山観音寺密蔵院は、観音菩薩の浄土にちなんだ山号を持つ歴史ある寺院です。本尊の観音菩薩立像は、慈悲の象徴として多くの参拝者を迎えてきました。</p>
-                    <p>延宝二年（1674年）に開山した隆秀和尚の示寂記録が残っており、江戸時代初期から約350年にわたり地域の信仰の中心として存続しています。開基は飯島新四郎で、地域の有力者によって支えられた寺院であったことがうかがえます。
-                    </p>
-                    <p>現在も久喜市の仏教文化を担う重要な存在として、静かな佇まいを保ちながら人々の祈りの場となっています。</p>
-                    <div class="modal-image-container" style="margin-top:20px; text-align:center;">
-                        <img src="./images/mituzo_new.webp" alt="密蔵院"
-                            style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
-                    </div>
-                    <!-- 地図表示エリア -->
-                    <div id="mitsuzoin-map"
-                        style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
-                        <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
-                    </div>
+    <!-- 密蔵院のモーダルウィンドウ -->
+    <div id="mitsuzoin-modal" class="modal">
+        <div class="modal-content modal-wide">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">密蔵院の詳細情報</h2>
+            <div class="modal-body">
+                <p>埼玉県久喜市下早見85に位置する補陀落山観音寺密蔵院は、観音菩薩の浄土にちなんだ山号を持つ歴史ある寺院です。本尊の観音菩薩立像は、慈悲の象徴として多くの参拝者を迎えてきました。</p>
+                <p>延宝二年（1674年）に開山した隆秀和尚の示寂記録が残っており、江戸時代初期から約350年にわたり地域の信仰の中心として存続しています。開基は飯島新四郎で、地域の有力者によって支えられた寺院であったことがうかがえます。
+                </p>
+                <p>現在も久喜市の仏教文化を担う重要な存在として、静かな佇まいを保ちながら人々の祈りの場となっています。</p>
+                <div class="modal-image-container" style="margin-top:20px; text-align:center;">
+                    <img src="./images/mituzo_new.webp" alt="密蔵院"
+                        style="max-width:100%; border-radius:4px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+                </div>
+                <!-- 地図表示エリア -->
+                <div id="mitsuzoin-map"
+                    style="height: 300px; width: 100%; margin-top: 20px; border-radius: 8px; border: 1px solid var(--warm-gold); z-index: 1;">
+                    <p style="text-align: center; padding-top: 130px; color: var(--gold-subtle);">地図を読み込み中...</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- ============================================
+    <!-- ============================================
          境内案内モーダル（新規シンプル版）
          ============================================ -->
-        <div id="precincts-modal" class="simple-precincts-modal">
-            <div class="precincts-modal-overlay" onclick="closePrecinctsModal()"></div>
-            <div class="precincts-modal-container">
-                <button class="precincts-modal-close" onclick="closePrecinctsModal()">
-                    <i class="fas fa-times"></i>
-                </button>
+    <div id="precincts-modal" class="simple-precincts-modal">
+        <div class="precincts-modal-overlay" onclick="closePrecinctsModal()"></div>
+        <div class="precincts-modal-container">
+            <button class="precincts-modal-close" onclick="closePrecinctsModal()">
+                <i class="fas fa-times"></i>
+            </button>
 
-                <h2 class="precincts-modal-title">境内案内</h2>
-                <p class="precincts-modal-subtitle">
-                    四季折々の花々が楽しめる庭園や、歴史ある建造物など、蓮花院の見どころをご紹介します。
-                </p>
+            <h2 class="precincts-modal-title">境内案内</h2>
+            <p class="precincts-modal-subtitle">
+                四季折々の花々が楽しめる庭園や、歴史ある建造物など、蓮花院の見どころをご紹介します。
+            </p>
 
-                <div class="precincts-grid">
-                    <div class="precinct-card">
-                        <div class="precinct-image">
-                            <img src="./images/intro_slide1.webp" alt="本堂">
-                        </div>
-                        <div class="precinct-info">
-                            <h3>本堂</h3>
-                            <p>本尊不動明王を祀る本堂は、日本古来の建築様式を継承する貴重な建造物です。</p>
-                        </div>
+            <div class="precincts-grid">
+                <div class="precinct-card">
+                    <div class="precinct-image">
+                        <img src="./images/intro_slide1.webp" alt="本堂">
                     </div>
-                    <div class="precinct-card">
-                        <div class="precinct-image">
-                            <img src="./images/photo2.jpg" alt="観音菩薩像">
-                        </div>
-                        <div class="precinct-info">
-                            <h3>観音菩薩像</h3>
-                            <p>慈悲の象徴として多くの参拝者を迎えてきました。心を救ってくださる菩薩様です。</p>
-                        </div>
+                    <div class="precinct-info">
+                        <h3>本堂</h3>
+                        <p>本尊不動明王を祀る本堂は、日本古来の建築様式を継承する貴重な建造物です。</p>
                     </div>
-                    <div class="precinct-card">
-                        <div class="precinct-image">
-                            <img src="./images/intro_slide2.webp" alt="山門">
-                        </div>
-                        <div class="precinct-info">
-                            <h3>山門</h3>
-                            <p>荘厳な風格を持つ山門は、訪れる方々を静かに迎え入れます。</p>
-                        </div>
+                </div>
+                <div class="precinct-card">
+                    <div class="precinct-image">
+                        <img src="./images/photo2.jpg" alt="観音菩薩像">
                     </div>
-                    <div class="precinct-card">
-                        <div class="precinct-image">
-                            <img src="./images/photo4.jpg" alt="庭園">
-                        </div>
-                        <div class="precinct-info">
-                            <h3>庭園</h3>
-                            <p>四季折々の自然が楽しめる庭園。春は桜、秋は紅葉が美しく彩ります。</p>
-                        </div>
+                    <div class="precinct-info">
+                        <h3>観音菩薩像</h3>
+                        <p>慈悲の象徴として多くの参拝者を迎えてきました。心を救ってくださる菩薩様です。</p>
+                    </div>
+                </div>
+                <div class="precinct-card">
+                    <div class="precinct-image">
+                        <img src="./images/intro_slide2.webp" alt="山門">
+                    </div>
+                    <div class="precinct-info">
+                        <h3>山門</h3>
+                        <p>荘厳な風格を持つ山門は、訪れる方々を静かに迎え入れます。</p>
+                    </div>
+                </div>
+                <div class="precinct-card">
+                    <div class="precinct-image">
+                        <img src="./images/photo4.jpg" alt="庭園">
+                    </div>
+                    <div class="precinct-info">
+                        <h3>庭園</h3>
+                        <p>四季折々の自然が楽しめる庭園。春は桜、秋は紅葉が美しく彩ります。</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- ============================================
+    <!-- ============================================
          フッター（一時的にコメントアウト中）
          ============================================
         <footer class="dark-footer">
@@ -757,112 +749,168 @@
         -->
 
 
-        <!-- お知らせモーダル -->
-        <div id="news-modal" class="modal news-modal">
-            <div class="modal-content news-modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="news-header">
-                    <h3><i class="fas fa-bell"></i> お知らせ</h3>
-                    <p>蓮花院からの最新情報</p>
-                </div>
-                <!-- News List Container for Dynamic Loading -->
-                <div id="news-list-container" class="news-list">
-                    <!-- Fallback content / Loading state -->
-                    <p class="loading-news">お知らせを読み込み中...</p>
-                </div>
-                <div class="news-footer">
-                    <a href="#" class="news-archive-link">過去のお知らせ一覧 <i class="fas fa-chevron-right"></i></a>
-                </div>
+    <!-- お知らせモーダル -->
+    <div id="news-modal" class="modal news-modal">
+        <div class="modal-content news-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="news-header">
+                <h3><i class="fas fa-bell"></i> お知らせ</h3>
+                <p>蓮花院からの最新情報</p>
+            </div>
+            <!-- News List Container for Dynamic Loading -->
+            <div id="news-list-container" class="news-list">
+                <!-- Fallback content / Loading state -->
+                <p class="loading-news">お知らせを読み込み中...</p>
+            </div>
+            <div class="news-footer">
+                <a href="#" class="news-archive-link">過去のお知らせ一覧 <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
+    </div>
 
-        <script src="./js/news-loader.js?v=24"></script>
-        <script src="./js/dark-theme.js?v=25"></script>
-        <script src="./js/branch-accordion.js"></script>
-        <script src="./js/photo-accordion.js"></script>
-        <script>
-            setTimeout(() => {
-                console.log('Final check: openNewsModal type is', typeof openNewsModal);
-            }, 1000);
+    <script src="./js/news-loader.js?v=30"></script>
+    <script src="./js/dark-theme.js?v=31"></script>
+    <script>
+        // 強制上書きスクリプト（JSファイル読み込み失敗時の保険）
+        window.openModal = function (modalId) {
+            // alert("openModal called: " + modalId); // デバッグ用（確認後削除）
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
 
-            // 地図初期化
-            let maps = {
-                taishido: { id: 'taishido-map', lat: 36.0621, lng: 139.6673, label: '太子堂', instance: null },
-                sannyuryo: { id: 'sannyuryo-map', lat: 36.0650, lng: 139.6710, label: '三入寮', instance: null },
-                mitsuzoin: { id: 'mitsuzoin-map', lat: 36.0635, lng: 139.6690, label: '密蔵院', instance: null }
-            };
+                // スタイルを強制適用（!important）
+                modal.style.setProperty('display', 'flex', 'important');
+                modal.style.setProperty('opacity', '1', 'important');
+                modal.style.setProperty('visibility', 'visible', 'important');
+                modal.style.setProperty('pointer-events', 'auto', 'important');
+                modal.style.setProperty('z-index', '999999', 'important');
 
-            function initLeafletMap(key) {
-                console.log('initLeafletMap called for:', key);
-                let m = maps[key];
-                if (!m) {
-                    console.error('Map config not found for key:', key);
-                    return;
-                }
+                // 位置調整
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
 
-                if (m.instance) {
-                    console.log('Map already initialized, invalidating size...');
-                    setTimeout(() => m.instance.invalidateSize(), 100);
-                    return;
-                }
-
-                const container = document.getElementById(m.id);
-                if (!container) {
-                    console.error('Map container not found:', m.id);
-                    return;
-                }
-
-                console.log('Initializing new Leaflet map...');
-                container.innerHTML = '';
-
-                try {
-                    if (typeof L === 'undefined') {
-                        console.error('Leaflet library (L) is not loaded!');
-                        container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図ライブラリの読み込みに失敗しました</p>';
-                        return;
-                    }
-
-                    m.instance = L.map(m.id).setView([m.lat, m.lng], 16);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(m.instance);
-
-                    L.marker([m.lat, m.lng]).addTo(m.instance).bindPopup(m.label).openPopup();
-                    console.log('Map initialization successful for:', key);
-
-                    // 表示直後のズレ防止（500ms → 1000ms）
-                    setTimeout(() => m.instance.invalidateSize(), 1000);
-                } catch (e) {
-                    console.error('Leaflet execution error:', e);
-                    container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図の表示中にエラーが発生しました</p>';
-                }
+                // 背景固定
+                document.body.style.overflow = 'hidden';
+            } else {
+                alert("エラー: モーダルが見つかりません ID=" + modalId);
             }
-        </script>
-        <script>
-            // パララックス効果
-            document.addEventListener('mousemove', function (e) {
-                const items = document.querySelectorAll('[data-speed]');
+        };
 
-                const x = (window.innerWidth - e.pageX * 2) / 100;
-                const y = (window.innerHeight - e.pageY * 2) / 100;
+        window.openNewsModal = function (e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            console.log("Forced openNewsModal called");
+            openModal('news-modal');
+        };
 
-                items.forEach(item => {
-                    const speed = item.getAttribute('data-speed');
-                    const xMove = x * speed;
-                    const yMove = y * speed;
+        // 分院モーダル用関数（JSファイル読み込み対策としてここに定義）
+        window.openTaishidoModal = function (e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            openModal('taishido-modal');
+            setTimeout(() => { if (typeof initLeafletMap === 'function') initLeafletMap('taishido'); }, 500);
+        };
 
-                    if (item.classList.contains('fusion-main')) {
-                        if (window.innerWidth <= 768) {
-                            item.style.transform = `translateX(calc(-50% + ${xMove}px)) translateY(${yMove}px)`;
-                        } else {
-                            item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
-                        }
+        window.openSannyuryoModal = function (e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            openModal('sannyuryo-modal');
+            setTimeout(() => { if (typeof initLeafletMap === 'function') initLeafletMap('sannyuryo'); }, 500);
+        };
+
+        window.openMitsuzoinModal = function (e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            openModal('mitsuzoin-modal');
+            setTimeout(() => { if (typeof initLeafletMap === 'function') initLeafletMap('mitsuzoin'); }, 500);
+        };
+    </script>
+    <script src="./js/branch-accordion.js"></script>
+    <script src="./js/photo-accordion.js"></script>
+    <script>
+        setTimeout(() => {
+            console.log('Final check: openNewsModal type is', typeof openNewsModal);
+        }, 1000);
+
+        // 地図初期化
+        let maps = {
+            taishido: { id: 'taishido-map', lat: 36.0621, lng: 139.6673, label: '太子堂', instance: null },
+            sannyuryo: { id: 'sannyuryo-map', lat: 36.0650, lng: 139.6710, label: '三入寮', instance: null },
+            mitsuzoin: { id: 'mitsuzoin-map', lat: 36.0635, lng: 139.6690, label: '密蔵院', instance: null }
+        };
+
+        function initLeafletMap(key) {
+            console.log('initLeafletMap called for:', key);
+            let m = maps[key];
+            if (!m) {
+                console.error('Map config not found for key:', key);
+                return;
+            }
+
+            if (m.instance) {
+                console.log('Map already initialized, invalidating size...');
+                setTimeout(() => m.instance.invalidateSize(), 100);
+                return;
+            }
+
+            const container = document.getElementById(m.id);
+            if (!container) {
+                console.error('Map container not found:', m.id);
+                return;
+            }
+
+            console.log('Initializing new Leaflet map...');
+            container.innerHTML = '';
+
+            try {
+                if (typeof L === 'undefined') {
+                    console.error('Leaflet library (L) is not loaded!');
+                    container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図ライブラリの読み込みに失敗しました</p>';
+                    return;
+                }
+
+                m.instance = L.map(m.id).setView([m.lat, m.lng], 16);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(m.instance);
+
+                L.marker([m.lat, m.lng]).addTo(m.instance).bindPopup(m.label).openPopup();
+                console.log('Map initialization successful for:', key);
+
+                // 表示直後のズレ防止（500ms → 1000ms）
+                setTimeout(() => m.instance.invalidateSize(), 1000);
+            } catch (e) {
+                console.error('Leaflet execution error:', e);
+                container.innerHTML = '<p style="text-align:center; padding-top:130px; color:red;">地図の表示中にエラーが発生しました</p>';
+            }
+        }
+    </script>
+    <script>
+        // パララックス効果
+        document.addEventListener('mousemove', function (e) {
+            const items = document.querySelectorAll('[data-speed]');
+
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            items.forEach(item => {
+                const speed = item.getAttribute('data-speed');
+                const xMove = x * speed;
+                const yMove = y * speed;
+
+                if (item.classList.contains('fusion-main')) {
+                    if (window.innerWidth <= 768) {
+                        item.style.transform = `translateX(calc(-50% + ${xMove}px)) translateY(${yMove}px)`;
                     } else {
                         item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
                     }
-                });
+                } else {
+                    item.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
+                }
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
